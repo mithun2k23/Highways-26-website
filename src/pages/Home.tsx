@@ -3,16 +3,7 @@ import { useEffect, useState } from 'react';
 
 
 
-const Lantern = ({ delay = '0s', left = '0%' }: { delay?: string, left?: string }) => (
-    <div className="lantern" style={{ left, animationDelay: delay }}>
-        <div className="lantern-string"></div>
-        <div className="lantern-body">
-            <div className="lantern-text">祭</div>
-        </div>
-    </div>
-);
-
-const Home = ({ world = 'heikai' }: { world?: string }) => {
+const Home = () => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
@@ -72,7 +63,7 @@ const Home = ({ world = 'heikai' }: { world?: string }) => {
                         <h2 className="highways-26-text text-glitch" data-text="HIGHWAYS 2026">HIGHWAYS 2026</h2>
                     </div>
                     <div className="hero-info">
-                        <div className="timer-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', justifyContent: 'center', maxWidth: '800px', margin: '0 auto 2rem' }}>
+                        <div className="timer-grid">
                             {[
                                 { value: timeLeft.days, label: 'Days', max: 365 },
                                 { value: timeLeft.hours, label: 'Hours', max: 24 },
@@ -86,8 +77,8 @@ const Home = ({ world = 'heikai' }: { world?: string }) => {
                                 const offset = circumference - (value / max) * circumference;
 
                                 return (
-                                    <div key={label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                        <div style={{ position: 'relative', width: '150px', height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+                                    <div key={label} className="timer-circle-container">
+                                        <div className="timer-circle">
                                             <svg style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }} viewBox="0 0 140 140">
                                                 <circle cx="70" cy="70" r={normalizedRadius} stroke="#1f2937" strokeWidth={stroke} fill="transparent" />
                                                 <circle
@@ -104,10 +95,10 @@ const Home = ({ world = 'heikai' }: { world?: string }) => {
                                                 />
                                             </svg>
                                             <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-                                                <span style={{ fontSize: '2.5rem', fontFamily: 'monospace', fontWeight: 900, color: 'white', lineHeight: 1 }}>
+                                                <span className="timer-value">
                                                     {value.toString().padStart(2, '0')}
                                                 </span>
-                                                <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--kin)', marginTop: '4px', fontWeight: 700 }}>
+                                                <span className="timer-label">
                                                     {label}
                                                 </span>
                                             </div>

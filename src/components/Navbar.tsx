@@ -35,10 +35,6 @@ const Navbar = () => {
             <div className="nav-container">
                 <Link to="/" className="logo-container" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
                     <img src={svceLogo} alt="SVCE Logo" className="logo-img-svce" />
-                    <div className="brand-text-single">
-                        <span className="brand-highways">HIGHWAYS</span>
-                        <span className="brand-year">'26</span>
-                    </div>
                 </Link>
 
                 <div className="mobile-toggle" onClick={toggleMobileMenu}>

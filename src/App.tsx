@@ -5,8 +5,6 @@ import './App.css'
 // Components
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import SakuraEffect from './components/SakuraEffect'
-import Hitodama from './components/Hitodama'
 import LoadingScreen from './components/LoadingScreen'
 
 // Pages
@@ -63,20 +61,17 @@ function App() {
         {/* Global Japan Texture Overlay */}
         <div className="matsuri-overlay" />
 
-        <SakuraEffect world={world} />
-        <Hitodama world={world} />
-
         <Navbar />
 
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Home world={world} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
             <Route path="/sponsors" element={<Sponsors />} />
             <Route path="/team" element={<Team />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/about" element={<About />} />
-            <Route path="*" element={<Home world={world} />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </main>
 

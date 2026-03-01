@@ -2860,8 +2860,8 @@ section.reveal-active::after {
   }
 
   .timer-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    max-width: 400px !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    max-width: 800px !important;
   }
 
   .countdown-item {
@@ -3171,4 +3171,92 @@ section.reveal-active::after {
 .glow-gold {
   color: var(--kin);
   text-shadow: 0 0 15px var(--kin), 0 0 30px #fff;
+}
+
+/* Timer Grid and Circles */
+.timer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  width: 100%;
+}
+
+.timer-circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.timer-value {
+  font-size: 2.5rem;
+  font-family: monospace;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+}
+
+.timer-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--kin);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .timer-grid {
+    gap: 10px;
+  }
+
+  .timer-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .timer-value {
+    font-size: 1.5rem;
+  }
+
+  .timer-label {
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-grid {
+    gap: 5px;
+  }
+
+  .timer-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .timer-value {
+    font-size: 1.2rem;
+  }
+
+  .timer-label {
+    font-size: 0.4rem;
+  }
 }
