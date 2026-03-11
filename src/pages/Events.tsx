@@ -1216,7 +1216,7 @@ const Events = () => {
 
     return (
         <section className={`events-cinematic-page style-${activeTheme.style}`} style={{
-            paddingTop: '150px',
+            paddingTop: '180px',
             minHeight: '100vh',
             paddingBottom: '150px',
             background: filter.day === 3 ? '#080000' : (filter.day === 2 ? '#000810' : '#030303'),
@@ -1271,28 +1271,28 @@ const Events = () => {
                         <div style={{
                             position: 'absolute',
                             inset: 0,
-                            zIndex: 1000,
+                            zIndex: 500,
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                             justifyContent: 'center',
                             background: 'rgba(3,3,3,0.5)',
-                            backdropFilter: 'blur(20px)',
+                            backdropFilter: 'blur(30px)',
                             textAlign: 'center',
                             padding: '4rem',
-                            borderRadius: '40px',
-                            minHeight: '400px'
+                            borderRadius: '50px',
+                            minHeight: '600px'
                         }}>
                             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-                                <i className="fas fa-lock" style={{ fontSize: '3rem', color: activeTheme.color, marginBottom: '1.5rem', display: 'block', opacity: 0.5 }}></i>
-                                <h2 style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', fontWeight: 950, color: 'white', letterSpacing: '-1px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>EPISODE LOCKED</h2>
-                                <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.5)', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' }}>The pages will be released soon</p>
-                                <div style={{ marginTop: '2rem', height: '2px', width: '150px', background: `linear-gradient(to right, transparent, ${activeTheme.color}, transparent)`, margin: '2rem auto' }}></div>
+                                <i className="fas fa-lock" style={{ fontSize: '4rem', color: activeTheme.color, marginBottom: '2rem', display: 'block', opacity: 0.5 }}></i>
+                                <h2 style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 950, color: 'white', letterSpacing: '-2px', textTransform: 'uppercase', marginBottom: '1rem' }}>EPISODE LOCKED</h2>
+                                <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' }}>The pages will be released soon</p>
+                                <div style={{ marginTop: '3rem', height: '2px', width: '200px', background: `linear-gradient(to right, transparent, ${activeTheme.color}, transparent)`, margin: '3rem auto' }}></div>
                             </motion.div>
                         </div>
                     )}
 
-                    <div style={{ opacity: isLocked ? 0 : 1, pointerEvents: isLocked ? 'none' : 'auto', visibility: isLocked ? 'hidden' : 'visible', height: isLocked ? '400px' : 'auto', overflow: 'hidden' }}>
+                    <div style={{ opacity: isLocked ? 0 : 1, pointerEvents: isLocked ? 'none' : 'auto', visibility: isLocked ? 'hidden' : 'visible', height: isLocked ? '600px' : 'auto', overflow: 'hidden' }}>
 
                 <div className="classification-carousel" style={{ marginBottom: '8rem', overflowX: 'auto', paddingBottom: '1.5rem', scrollbarWidth: 'none' }}>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', minWidth: 'max-content', padding: '0 2rem' }}>

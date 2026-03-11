@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import HighwaysLogo from "../assets/highways-logo.png";
+import HighwaysLogo from "../assets/logos/highways-logo.png";
 
 const Home = () => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -106,11 +106,7 @@ const Home = () => {
                             <h2 className="section-title left">THE SAGA BEGINS</h2>
                             <p>Highways is the annual intercollegiate cultural festival of Sri Venkateswara College of Engineering (SVCE). Known for its vibrant atmosphere and creative energy, Highways brings together students from across the states to celebrate art, talent, and expression.</p>
                             <p>This year, for <strong>Highways '26</strong>, we are pushing the boundaries of creativity. Experience a festival like never before, where every moment is a masterpiece and every event is a step into the extraordinary.</p>
-                            <div className="about-highlights">
-                                <div className="highlight"><i className="fas fa-bolt"></i> Pure Energy</div>
-                                <div className="highlight"><i className="fas fa-palette"></i> Creative Soul</div>
-                                <div className="highlight"><i className="fas fa-star"></i> Infinite Talent</div>
-                            </div>
+
                         </div>
                         <div className="about-image-container">
                             <div className="image-frame" style={{ position: 'relative' }}>
@@ -180,39 +176,123 @@ const Home = () => {
             </section>
 
             {/* GLIMPSES SECTION: INFINITE DRIFT */}
-            <section id="glimpses" className="glimpses-section-new">
+            <section id="glimpses" className="glimpses-section-new" style={{ position: 'relative' }}>
                 <div className="container" style={{ marginBottom: '4rem' }}>
                     <h2 className="section-title center">PAST GLIMPSES</h2>
                 </div>
 
-                <div className="glimpses-track-container">
-                    {/* Track 1: Slow */}
-                    <div className="drift-track slow">
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((n, i) => (
-                            <div key={`t1-${i}`} className="glimpse-frame">
-                                <img src={`/assets/glimpses/${n}.${n === 8 || n === 9 || n === 10 || n === 11 ? 'png' : (n === 2 || n === 4 || n === 6 ? 'webp' : 'JPG')}`} alt="Highways" />
+                <div className="glimpses-track-container" style={{ gap: '180px', marginTop: '100px' }}>
+                    {[
+                        { 
+                            year: "2023", 
+                            folder: "Highways 23", 
+                            speed: "slow",
+                            images: ['15.png', '9.png', '4.webp', '12.png', '18.png', '6.webp', '14.png', '10.png', '19.png', '2.webp', '11.png', '17.png', '8.png', '13.png', '16.png'] 
+                        },
+                        { 
+                            year: "2024", 
+                            folder: "Highways 24", 
+                            speed: "med",
+                            images: ['5.JPG', '1.JPG', '7.JPG', '3.JPG'] 
+                        },
+                        { 
+                            year: "2025", 
+                            folder: "Highways 25", 
+                            speed: "fast",
+                            images: ['31.png', '24.png', '20.png', '28.png', '33.png', '22.png', '26.png', '30.png', '21.png', '29.png', '25.png', '32.png', '23.png', '27.png'] 
+                        }
+                    ].map((track) => (
+                        <div key={track.year} className="track-row-wrapper" style={{ 
+                            position: 'relative'
+                        }}>
+                            {/* Cinematic Year Background Watermark */}
+                            <div className="year-watermark" style={{
+                                position: 'absolute',
+                                left: '5%',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                fontSize: '12vw',
+                                fontWeight: 950,
+                                color: 'rgba(255,255,255,0.02)',
+                                pointerEvents: 'none',
+                                zIndex: 0,
+                                fontFamily: "'Outfit', sans-serif"
+                            }}>
+                                {track.year}
                             </div>
-                        ))}
-                    </div>
 
-                    {/* Track 2: Medium (Opposite) */}
-                    <div className="drift-track med">
-                        {[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22].map((n, i) => (
-                            <div key={`t2-${i}`} className="glimpse-frame">
-                                <img src={`/assets/glimpses/${n}.png`} alt="Highways" />
+                            {/* Floating Integrated Label - Aligned Left for all */}
+                            <div className="floating-year-label" style={{
+                                position: 'absolute',
+                                left: '5%',
+                                top: '-60px',
+                                zIndex: 10,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '20px'
+                            }}>
+                                <div style={{ width: '40px', height: '1px', background: '#ff4d4d' }}></div>
+                                <span style={{ 
+                                    color: 'white', 
+                                    fontWeight: 900, 
+                                    fontSize: '1.5rem', 
+                                    letterSpacing: '5px',
+                                    textTransform: 'uppercase'
+                                }}>
+                                    <span style={{ color: '#ff4d4d' }}>HIGHWAYS</span> '{track.year.slice(2)}
+                                </span>
                             </div>
-                        ))}
-                    </div>
-
-                    {/* Track 3: Fast */}
-                    <div className="drift-track fast">
-                        {[23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33].map((n, i) => (
-                            <div key={`t3-${i}`} className="glimpse-frame">
-                                <img src={`/assets/glimpses/${n}.png`} alt="Highways" />
+                            
+                            <div className="drift-track fast" style={{ zIndex: 1 }}>
+                                {/* Repeat twice for a proper 50% loop */}
+                                {[...track.images, ...track.images].map((img, i) => (
+                                    <div key={`${track.year}-${i}`} className="glimpse-frame" style={{
+                                        transform: i % 2 === 0 ? 'translateY(20px)' : 'translateY(-20px)'
+                                    }}>
+                                        <img src={`/assets/glimpses/${track.folder}/${img}`} alt={`Highways ${track.year}`} />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
+
+                <style>{`
+                    .track-row-wrapper {
+                        transition: all 0.5s ease;
+                    }
+                    .track-row-wrapper:hover .year-watermark {
+                        color: rgba(255, 77, 77, 0.05);
+                        transform: translateY(-50%) scale(1.05);
+                    }
+                    .track-row-wrapper:hover .floating-year-label span {
+                        color: #ff4d4d;
+                        letter-spacing: 8px;
+                    }
+                    .track-row-wrapper:hover .floating-year-label div {
+                        width: 80px;
+                        background: white;
+                    }
+                    
+                    @media (max-width: 768px) {
+                        .glimpses-track-container {
+                            gap: 120px !important;
+                        }
+                        .floating-year-label {
+                            left: 50% !important;
+                            right: auto !important;
+                            transform: translateX(-50%);
+                            top: -40px !important;
+                        }
+                        .floating-year-label span { font-size: 1rem !important; }
+                        .floating-year-label div { display: none; }
+                        .year-watermark { display: none; }
+                        .glimpse-frame {
+                            height: 300px !important;
+                            transform: none !important;
+                        }
+                    }
+                `}</style>
             </section>
 
 

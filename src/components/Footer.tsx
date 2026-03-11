@@ -1,4 +1,4 @@
-import HighwaysLogo from "../assets/highways-logo.png";
+import HighwaysLogo from "../assets/logos/highways-logo.png";
 
 const Footer = () => {
   return (
