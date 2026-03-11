@@ -19,7 +19,7 @@ interface EventDetail {
     description: string;
     rules: string[];
     prizePool: string;
-    regType: 'Free' | 'Premium';
+    regType: 'Free' | 'Standard' | 'Premium';
     regFee?: string;
     teamSize: 'Solo' | 'Group' | 'Solo/Group';
     pocs: POC[];
@@ -177,7 +177,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "₹1.5K",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹50/Person",
     "teamSize": "Solo",
     "pocs": [{ "name": "EWB Team", "phone": "Available at Helpdesk" }]
@@ -288,7 +288,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "TBA",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹200",
     "teamSize": "Solo",
     "pocs": [{ "name": "RRC Team", "phone": "Available at Helpdesk" }]
@@ -378,7 +378,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "TBA",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹30/Person",
     "teamSize": "Solo",
     "pocs": [{ "name": "Shortfilm Team", "phone": "Available at Helpdesk" }]
@@ -468,7 +468,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "₹1.5K",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹50/Team",
     "teamSize": "Group",
     "pocs": [{ "name": "Tamil Mandram Team", "phone": "Available at Helpdesk" }]
@@ -536,7 +536,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "₹1K",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹75/Team",
     "teamSize": "Group",
     "pocs": [{ "name": "ECell Team", "phone": "Available at Helpdesk" }]
@@ -559,7 +559,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "₹1.5K",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹75/Team",
     "teamSize": "Group",
     "pocs": [{ "name": "ECell Team", "phone": "Available at Helpdesk" }]
@@ -582,7 +582,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "₹1.5K",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹100/Team",
     "teamSize": "Group",
     "pocs": [{ "name": "Photo Club Team", "phone": "Available at Helpdesk" }]
@@ -605,7 +605,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "₹1.5K",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹50/Person",
     "teamSize": "Solo",
     "pocs": [{ "name": "Photo Club Team", "phone": "Available at Helpdesk" }]
@@ -628,7 +628,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "₹1.5K",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹100/Team",
     "teamSize": "Group",
     "pocs": [{ "name": "Science Club Team", "phone": "Available at Helpdesk" }]
@@ -695,7 +695,7 @@ const allEvents: EventDetail[] = [
       "Report 15 minutes before the start time."
     ],
     "prizePool": "TBA",
-    "regType": "Premium",
+    "regType": "Standard",
     "regFee": "₹200",
     "teamSize": "Solo",
     "pocs": [{ "name": "Care Team", "phone": "Available at Helpdesk" }]
