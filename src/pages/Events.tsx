@@ -29,7 +29,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 1,
     "title": "Shoot and Broadcast",
-    "category": "Curtain Call",
+    "category": "Cinematic & Visual Arts",
     "day": 1,
     "date": "April 09, 2026",
     "time": "1:00 PM",
@@ -57,7 +57,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 2,
     "title": "Mime",
-    "category": "Curtain Call",
+    "category": "Performance Arts",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
@@ -85,7 +85,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 3,
     "title": "AdZap",
-    "category": "Curtain Call",
+    "category": "Performance Arts",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -113,7 +113,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 4,
     "title": "Freeze Frame",
-    "category": "Curtain Call",
+    "category": "Cinematic & Visual Arts",
     "day": 1,
     "date": "April 09, 2026",
     "time": "10:00 AM",
@@ -141,7 +141,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 5,
     "title": "Yonko's Treasure Market",
-    "category": "Reading Club",
+    "category": "Quizzing, Debate & Literary",
     "day": 1,
     "date": "April 09, 2026",
     "time": "10:30 AM",
@@ -170,7 +170,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 6,
     "title": "Sorting Hat Conspiracy",
-    "category": "Reading Club",
+    "category": "Quizzing, Debate & Literary",
     "day": 2,
     "date": "April 10, 2026",
     "time": "1:00 PM",
@@ -198,7 +198,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 7,
     "title": "Trust the Process",
-    "category": "EWB",
+    "category": "Innovation, Tech & Gaming",
     "day": 1,
     "date": "April 09, 2026",
     "time": "9:30 AM",
@@ -227,7 +227,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 8,
     "title": "Chaos Director",
-    "category": "EWB",
+    "category": "Cinematic & Visual Arts",
     "day": 2,
     "date": "April 10, 2026",
     "time": "9:30 AM",
@@ -255,7 +255,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 9,
     "title": "Deii... Avan Sethutan da.. (Who's the Sus?)",
-    "category": "ISTD",
+    "category": "Quizzes & Entertainment",
     "day": 1,
     "date": "April 09, 2026",
     "time": "9:00 AM",
@@ -281,7 +281,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 10,
     "title": "Unaku Avlo Thaan Limit'uh (Money Moves)",
-    "category": "ISTD",
+    "category": "Quizzes & Entertainment",
     "day": 2,
     "date": "April 10, 2026",
     "time": "9:00 AM",
@@ -307,7 +307,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 11,
     "title": "Scavenger Hunt",
-    "category": "RRC",
+    "category": "Quizzes & Entertainment",
     "day": 1,
     "date": "April 09, 2026",
     "time": "10:00 AM",
@@ -334,8 +334,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 12,
-    "title": "GEN-Z JUNK",
-    "category": "RRC",
+    "title": "Mystery Box Challenge",
+    "category": "Quizzes & Entertainment",
     "day": 2,
     "date": "April 10, 2026",
     "time": "1:00 PM",
@@ -363,7 +363,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 13,
     "title": "Human Knot",
-    "category": "RRC",
+    "category": "Quizzes & Entertainment",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -392,7 +392,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 14,
     "title": "Channel Surfing",
-    "category": "Speakers Forum",
+    "category": "Performance Arts",
     "day": 1,
     "date": "April 09, 2026",
     "time": "1:00 PM",
@@ -420,7 +420,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 15,
     "title": "Survival of the Fittest",
-    "category": "Speakers Forum",
+    "category": "Quizzing, Debate & Literary",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
@@ -449,9 +449,9 @@ const allEvents: EventDetail[] = [
   {
     "id": 16,
     "title": "Movie Screening",
-    "category": "Shortfilm",
+    "category": "Cinematic & Visual Arts",
     "day": 1,
-    "date": "April 09, 2026", // Note: The description says Apr 09, 10, 11
+    "date": "April 09, 2026", 
     "time": "9:00 AM",
     "location": "Library Seminar Hall",
     "color": "#ffb7c5",
@@ -484,7 +484,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 17,
     "title": "CineQuest",
-    "category": "Shortfilm",
+    "category": "Cinematic & Visual Arts",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
@@ -514,7 +514,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 18,
     "title": "Short Film Contest",
-    "category": "Shortfilm",
+    "category": "Cinematic & Visual Arts",
     "day": 3,
     "date": "April 11, 2026",
     "time": "1:00 PM",
@@ -540,8 +540,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 19,
-    "title": "Maathi Yosi",
-    "category": "Tamil Mandram",
+    "title": "Mathi Yosi",
+    "category": "Quizzing, Debate & Literary",
     "day": 1,
     "date": "April 09, 2026",
     "time": "10:00 AM",
@@ -568,7 +568,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 20,
     "title": "Thirai Suzhal",
-    "category": "Tamil Mandram",
+    "category": "Quizzes & Entertainment",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
@@ -594,8 +594,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 21,
-    "title": "Olunga paadu illana spray adichiruven",
-    "category": "Tamil Mandram",
+    "title": "Olunga Paattu Illana Spray Aatichutuven",
+    "category": "Quizzes & Entertainment",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -622,8 +622,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 22,
-    "title": "EPL - Entrepreneurship Pitching League",
-    "category": "ECell",
+    "title": "EPL: Entrepreneurship Pitching League",
+    "category": "Innovation, Tech & Gaming",
     "day": 1,
     "date": "April 09, 2026",
     "time": "9:00 AM",
@@ -651,7 +651,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 23,
     "title": "Disasterpreneur",
-    "category": "ECell",
+    "category": "Innovation, Tech & Gaming",
     "day": 2,
     "date": "April 10, 2026",
     "time": "9:00 AM",
@@ -680,7 +680,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 24,
     "title": "Startup War Room",
-    "category": "ECell",
+    "category": "Innovation, Tech & Gaming",
     "day": 3,
     "date": "April 11, 2026",
     "time": "9:00 AM",
@@ -709,7 +709,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 25,
     "title": "Shot on Highways",
-    "category": "Photo Club",
+    "category": "Cinematic & Visual Arts",
     "day": 1,
     "date": "April 09, 2026",
     "time": "10:00 AM",
@@ -737,7 +737,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 26,
     "title": "Frame by words",
-    "category": "Photo Club",
+    "category": "Cinematic & Visual Arts",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
@@ -765,7 +765,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 27,
     "title": "Otakumania",
-    "category": "Science Club",
+    "category": "Innovation, Tech & Gaming",
     "day": 1,
     "date": "April 09, 2026",
     "time": "10:00 AM",
@@ -793,8 +793,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 28,
-    "title": "Greenscreen",
-    "category": "Science Club",
+    "title": "Green Screen",
+    "category": "Cinematic & Visual Arts",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
@@ -822,7 +822,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 29,
     "title": "Power Play Arena",
-    "category": "Science Club",
+    "category": "Quizzes & Entertainment",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -849,8 +849,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 30,
-    "title": "Tellus Abyss",
-    "category": "Care",
+    "title": "Eco Wreck – Tellus Abyss",
+    "category": "Quizzing, Debate & Literary",
     "day": 2,
     "date": "April 10, 2026",
     "time": "9:00 AM",
@@ -877,8 +877,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 31,
-    "title": "Token Takeover",
-    "category": "Care",
+    "title": "Eco Carnival",
+    "category": "Quizzes & Entertainment",
     "day": 3,
     "date": "April 11, 2026",
     "time": "9:00 AM",
@@ -905,26 +905,24 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 32,
-    "title": "Survival Showdown (BGMI)",
-    "category": "Care",
+    "title": "Clash Royale Tournament",
+    "category": "Innovation, Tech & Gaming",
     "day": 1,
     "date": "April 09, 2026",
     "time": "9:00 AM",
     "location": "CB526",
     "color": "#ffb7c5",
     "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000",
-    "description": "BGMI Battle Royale competition. Teams compete in custom room matches on Erangel to earn placement and elimination points.",
+    "description": "Battle in our high-stakes tournament. Compete against top players and claim the title of the ultimate champion.",
     "rules": [
-      "Qualifiers divide teams into custom room matches.",
-      "Point system based on placement and total eliminations/kills.",
-      "Grand Finals combine points from multiple matches to find the champion.",
-      "Mode: Squad (4 Players) on Erangel map.",
-      "Fair play: Hacks or exploits result in immediate disqualification."
+      "Tournament bracket format.",
+      "Fair play: Hacks or exploits result in immediate disqualification.",
+      "Standard tournament rules apply."
     ],
     "prizePool": "Rs. 4,000/-",
     "regType": "Premium",
     "regFee": "Rs. 100/-",
-    "teamSize": "Group",
+    "teamSize": "Solo",
     "pocs": [
       {
         "name": "Hariram Bharathwaj",
@@ -935,7 +933,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 33,
     "title": "Saregama",
-    "category": "Rotaract",
+    "category": "Music & Dance",
     "day": 1,
     "date": "April 09, 2026",
     "time": "1:30 PM",
@@ -963,8 +961,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 34,
-    "title": "The Royal Gambit",
-    "category": "Rotaract",
+    "title": "Royal Gambit",
+    "category": "Innovation, Tech & Gaming",
     "day": 2,
     "date": "April 10, 2026",
     "time": "10:00 AM",
@@ -993,7 +991,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 35,
     "title": "Overdrive (Battle of Bands)",
-    "category": "Music Club",
+    "category": "Music & Dance",
     "day": 1,
     "date": "April 09, 2026",
     "time": "9:30 AM",
@@ -1029,7 +1027,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 36,
     "title": "Crescendo (Solo Singing)",
-    "category": "Music Club",
+    "category": "Music & Dance",
     "day": 2,
     "date": "April 10, 2026",
     "time": "1:30 PM",
@@ -1065,7 +1063,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 37,
     "title": "Solography",
-    "category": "Dance Club",
+    "category": "Music & Dance",
     "day": 2,
     "date": "April 10, 2026",
     "time": "9:00 AM",
@@ -1095,7 +1093,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 38,
     "title": "Groove Chemistry",
-    "category": "Dance Club",
+    "category": "Music & Dance",
     "day": 2,
     "date": "April 10, 2026",
     "time": "9:00 AM",
@@ -1125,7 +1123,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 39,
     "title": "Groovanza",
-    "category": "Dance Club",
+    "category": "Music & Dance",
     "day": 1,
     "date": "April 09, 2026",
     "time": "1:00 PM",
@@ -1160,7 +1158,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 40,
     "title": "Pairfect",
-    "category": "Dance Club",
+    "category": "Music & Dance",
     "day": 1,
     "date": "April 09, 2026",
     "time": "1:00 PM",
@@ -1194,7 +1192,7 @@ const allEvents: EventDetail[] = [
   {
     "id": 41,
     "title": "UNIVIA",
-    "category": "Youth Red Cross",
+    "category": "Quizzes & Entertainment",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -1220,8 +1218,8 @@ const allEvents: EventDetail[] = [
   },
   {
     "id": 42,
-    "title": "Mr & Ms. Highways",
-    "category": "Speakers Forum",
+    "title": "Title Event",
+    "category": "Performance Arts",
     "day": 3,
     "date": "April 11, 2026",
     "time": "10:00 AM",
@@ -1249,7 +1247,7 @@ const allEvents: EventDetail[] = [
   }
 ];
 
-const categoriesList = ["All","Curtain Call","Reading Club","EWB","ISTD","RRC","Speakers Forum","Shortfilm","Tamil Mandram","ECell","Photo Club","Science Club","Care","Rotaract","Music Club","Dance Club","Youth Red Cross"];
+const categoriesList = ["All", "Music & Dance", "Quizzes & Entertainment", "Quizzing, Debate & Literary", "Performance Arts", "Cinematic & Visual Arts", "Innovation, Tech & Gaming"];
 const dayThemes = [
     {
         id: 1,
@@ -1544,11 +1542,31 @@ const Events = () => {
     }, [filter.day]);
 
     const filteredEvents = useMemo(() => {
-        return allEvents.filter(event => {
-            const categoryMatch = filter.category === "All" || event.category === filter.category;
-            const dayMatch = filter.day === 0 || event.day === filter.day;
-            return categoryMatch && dayMatch;
-        });
+        const categoryOrder = [
+            "Music & Dance",
+            "Quizzes & Entertainment",
+            "Quizzing, Debate & Literary",
+            "Performance Arts",
+            "Cinematic & Visual Arts",
+            "Innovation, Tech & Gaming"
+        ];
+
+        return allEvents
+            .filter(event => {
+                const categoryMatch = filter.category === "All" || event.category === filter.category;
+                const dayMatch = filter.day === 0 || event.day === filter.day;
+                return categoryMatch && dayMatch;
+            })
+            .sort((a, b) => {
+                const orderA = categoryOrder.indexOf(a.category);
+                const orderB = categoryOrder.indexOf(b.category);
+                
+                // First by category order
+                if (orderA !== orderB) return orderA - orderB;
+                
+                // Then by id if categories are the same
+                return a.id - b.id;
+            });
     }, [filter]);
 
     const handleOpenModal = (event: EventDetail) => {

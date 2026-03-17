@@ -99,7 +99,7 @@ const [formData, setFormData] = useState({
                     {/* EARLY BIRD - ACTIVE */}
                     <motion.div
                         whileHover={{ y: -15, scale: 1.03 }}
-                        onClick={() => setIsModalOpen(true)}
+                        onClick={() => window.open('https://forms.gle/aQ3LGRZMHq9waVvg8', '_blank')}
                         style={{
                             background: 'rgba(255, 255, 255, 0.03)',
                             backdropFilter: 'blur(10px)',
@@ -123,19 +123,25 @@ const [formData, setFormData] = useState({
                         <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                             <span style={{ fontSize: '1.4rem', color: '#ef233c' }}>₹</span>899
                         </div>
-                        <button style={{
-                            width: '100%',
-                            padding: '1.1rem',
-                            background: '#ef233c',
-                            border: 'none',
-                            color: 'white',
-                            borderRadius: '16px',
-                            fontWeight: 950,
-                            letterSpacing: '2px',
-                            cursor: 'pointer',
-                            textTransform: 'uppercase',
-                            fontSize: '0.9rem'
-                        }}>GET PASS NOW</button>
+                        <button 
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                window.open('https://forms.gle/aQ3LGRZMHq9waVvg8', '_blank');
+                            }}
+                            style={{
+                                width: '100%',
+                                padding: '1.1rem',
+                                background: '#ef233c',
+                                border: 'none',
+                                color: 'white',
+                                borderRadius: '16px',
+                                fontWeight: 950,
+                                letterSpacing: '2px',
+                                cursor: 'pointer',
+                                textTransform: 'uppercase',
+                                fontSize: '0.9rem'
+                            }}
+                        >GET PASS NOW</button>
                     </motion.div>
 
                     {/* NORMAL - LOCKED/X */}
