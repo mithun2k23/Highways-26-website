@@ -118,7 +118,9 @@ const [formData, setFormData] = useState({
                         <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>EARLY BIRD</h3>
                         <div style={{ color: '#ef233c', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>All-In-One Experience</div>
                         <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                            The ultimate pass for Highways '26. Includes access to all 3-days of events, celebrity nights, and primary workshops.
+                            Early bird discount
+Access to all Pro Shows
+Access to all free and standard events
                         </p>
                         <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                             <span style={{ fontSize: '1.4rem', color: '#ef233c' }}>₹</span>899
@@ -147,15 +149,15 @@ const [formData, setFormData] = useState({
                     {/* NORMAL - LOCKED/X */}
                     <div
                         style={{
-                            background: 'rgba(255, 255, 255, 0.02)',
+                            background: 'rgba(255, 255, 255, 0.03)',
                             backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                            border: '1px solid rgba(239, 35, 60, 0.3)',
                             borderRadius: '32px',
                             padding: '3rem 2rem',
                             textAlign: 'center',
                             position: 'relative',
-                            opacity: 0.6,
-                            overflow: 'hidden'
+                            overflow: 'hidden',
+                            boxShadow: '0 30px 60px rgba(0,0,0,0.4), inset 0 0 20px rgba(239, 35, 60, 0.1)'
                         }}
                     >
                         {/* THE X DESIGN */}
@@ -165,41 +167,43 @@ const [formData, setFormData] = useState({
                            <div style={{ background: '#0a0a0a', padding: '10px 20px', borderRadius: '10px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 900, zIndex: 11, fontSize: '1rem', letterSpacing: '2px' }}>LOCKED</div>
                         </div>
 
-                        <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>NORMAL PASS</h3>
-                        <div style={{ color: 'rgba(255,255,255,0.4)', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>Standard Access</div>
-                        <p style={{ color: 'rgba(255,255,255,0.3)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                            Standard entry for single day events and limited access to general festival zones.
-                        </p>
-                        <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: 0.3 }}>
-                            <span style={{ fontSize: '1.4rem' }}>₹</span>1199
+                        <div style={{ filter: 'blur(8px)', opacity: 0.65 }}>
+                            <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>NORMAL PASS</h3>
+                            <div style={{ color: '#ef233c', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>Standard Access</div>
+                            <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                                General pass access for the festival experience with standard event entry.
+                            </p>
+                            <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.4rem', color: '#ef233c' }}>₹</span>TBA
+                            </div>
+                            <button disabled style={{
+                                width: '100%',
+                                padding: '1.1rem',
+                                background: '#ef233c',
+                                border: 'none',
+                                color: 'white',
+                                borderRadius: '16px',
+                                fontWeight: 950,
+                                letterSpacing: '2px',
+                                cursor: 'not-allowed',
+                                textTransform: 'uppercase',
+                                fontSize: '0.9rem'
+                            }}>GET PASS NOW</button>
                         </div>
-                        <button disabled style={{
-                            width: '100%',
-                            padding: '1.1rem',
-                            background: 'rgba(255,255,255,0.05)',
-                            border: '1px solid rgba(255,255,255,0.1)',
-                            color: 'rgba(255,255,255,0.2)',
-                            borderRadius: '16px',
-                            fontWeight: 950,
-                            letterSpacing: '2px',
-                            cursor: 'not-allowed',
-                            textTransform: 'uppercase',
-                            fontSize: '0.9rem'
-                        }}>NOT AVAILABLE</button>
                     </div>
 
                     {/* OTHER COLLEGE - LOCKED/X */}
                     <div
                         style={{
-                            background: 'rgba(255, 255, 255, 0.02)',
+                            background: 'rgba(255, 255, 255, 0.03)',
                             backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                            border: '1px solid rgba(239, 35, 60, 0.3)',
                             borderRadius: '32px',
                             padding: '3rem 2rem',
                             textAlign: 'center',
                             position: 'relative',
-                            opacity: 0.6,
-                            overflow: 'hidden'
+                            overflow: 'hidden',
+                            boxShadow: '0 30px 60px rgba(0,0,0,0.4), inset 0 0 20px rgba(239, 35, 60, 0.1)'
                         }}
                     >
                          {/* THE X DESIGN */}
@@ -209,27 +213,29 @@ const [formData, setFormData] = useState({
                            <div style={{ background: '#0a0a0a', padding: '10px 20px', borderRadius: '10px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 900, zIndex: 11, fontSize: '1rem', letterSpacing: '2px' }}>COMING SOON</div>
                         </div>
 
-                        <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>NON-SVCE</h3>
-                        <div style={{ color: 'rgba(255,255,255,0.4)', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>External Entry</div>
-                        <p style={{ color: 'rgba(255,255,255,0.3)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                            Access pass for students from other institutions. Includes separate registration flow and event eligibility.
-                        </p>
-                        <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: 0.3 }}>
-                            <span style={{ fontSize: '1.4rem' }}>₹</span>1499
+                        <div style={{ filter: 'blur(8px)', opacity: 0.65 }}>
+                            <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>NON-SVCE</h3>
+                            <div style={{ color: '#ef233c', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>External Entry</div>
+                            <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                                Pass access for non-SVCE participants with details to be announced shortly.
+                            </p>
+                            <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.4rem', color: '#ef233c' }}>₹</span>TBA
+                            </div>
+                            <button disabled style={{
+                                width: '100%',
+                                padding: '1.1rem',
+                                background: '#ef233c',
+                                border: 'none',
+                                color: 'white',
+                                borderRadius: '16px',
+                                fontWeight: 950,
+                                letterSpacing: '2px',
+                                cursor: 'not-allowed',
+                                textTransform: 'uppercase',
+                                fontSize: '0.9rem'
+                            }}>GET PASS NOW</button>
                         </div>
-                        <button disabled style={{
-                            width: '100%',
-                            padding: '1.1rem',
-                            background: 'rgba(255,255,255,0.05)',
-                            border: '1px solid rgba(255,255,255,0.1)',
-                            color: 'rgba(255,255,255,0.2)',
-                            borderRadius: '16px',
-                            fontWeight: 950,
-                            letterSpacing: '2px',
-                            cursor: 'not-allowed',
-                            textTransform: 'uppercase',
-                            fontSize: '0.9rem'
-                        }}>NOT AVAILABLE</button>
                     </div>
                 </div>
             </div>

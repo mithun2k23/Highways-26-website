@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import PreFooter from './components/PreFooter'
+import CustomCursor from './components/CustomCursor'
 
 // Pages
 import Home from './pages/Home'
@@ -35,6 +36,7 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <LoadingScreen />
+        <CustomCursor />
 
         <Navbar />
 

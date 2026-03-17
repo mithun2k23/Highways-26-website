@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence, useSpring } from 'framer-motion';
+import { applyCursorTheme } from '../lib/cursorTheme';
 
 interface EventItem {
     time: string;
@@ -26,7 +27,7 @@ const dayThemes: DayTheme[] = [
         id: 1,
         name: "IGNITION",
         label: "APRIL 09",
-        color: "#ffb7c5",
+        color: "#e8729a",
         secondary: "#ffffff",
         kanji: "始",
         tagline: "WHERE THE ROAD BEGINS",
@@ -37,8 +38,8 @@ const dayThemes: DayTheme[] = [
         id: 2,
         name: "OVERDRIVE",
         label: "APRIL 10",
-        color: "#00d2ff",
-        secondary: "#000000",
+        color: "#f5e6c8",
+        secondary: "#1a1008",
         kanji: "速",
         tagline: "RIDING THE LIGHTNING",
         bgImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop",
@@ -155,6 +156,10 @@ const Schedule = () => {
 
     const activeTheme = useMemo(() => dayThemes.find(t => t.id === activeDay) || dayThemes[0], [activeDay]);
     const events = useMemo(() => scheduleEvents[activeDay], [activeDay]);
+
+    useEffect(() => {
+        applyCursorTheme({ accent: activeTheme.color });
+    }, [activeTheme.color]);
 
     return (
         <section className={`schedule-premium-page style-${activeTheme.style}`} style={{

@@ -5,7 +5,7 @@ const PreFooter = () => {
             <section className="w-full px-6 md:px-12 lg:px-20 py-24 text-white" id="contact">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12 max-w-3xl space-y-3">
-                        <h2 className="ds-title">For registration queries,</h2>
+                        <h2 className="ds-title">For queries</h2>
                         <p className="ds-subtitle">please contact</p>
                     </div>
 

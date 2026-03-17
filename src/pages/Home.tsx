@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Glimpses from './Glimpses';
@@ -6,31 +6,8 @@ import Glimpses from './Glimpses';
 const HighwaysLogo = "/assets/logos/highways-logo.webp";
 
 const Home = () => {
-    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
-        const targetDate = new Date('2026-04-09T00:00:00');
-
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = targetDate.getTime() - now;
-
-            if (distance < 0) {
-                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-                return;
-            }
-
-            setTimeLeft({
-                days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-                hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-                minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-                seconds: Math.floor((distance % (1000 * 60)) / 1000)
-            });
-        };
-
-        updateTimer();
-        const timer = setInterval(updateTimer, 1000);
-
         const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -47,7 +24,6 @@ const Home = () => {
 
         return () => {
             observer.disconnect();
-            clearInterval(timer);
         };
     }, []);
 
@@ -69,41 +45,20 @@ const Home = () => {
                 <div className="hero-content home-hero-content animate-fade w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* FIXED LOGO CONTAINER */}
-                    <div className="flex justify-center w-full mb-6 md:mb-8">
-                        <img
-                            src={HighwaysLogo}
-                            alt="Highways Logo"
-                            className="w-auto h-auto max-w-[100%] md:max-w-[1000px] max-h-[200px] md:max-h-[300px] lg:max-h-[380px] object-contain mx-auto drop-shadow-2xl"
-                        />
+                    <div className="flex justify-center w-full mt-16 md:mt-20 mb-6 md:mb-8">
+                        <div className="relative inline-block">
+                            <img
+                                src={HighwaysLogo}
+                                alt="Highways Logo"
+                                className="w-auto h-auto max-w-[100%] md:max-w-[1000px] max-h-[200px] md:max-h-[300px] lg:max-h-[380px] object-contain drop-shadow-2xl"
+                            />
+                            <div className="absolute bottom-0 right-0 translate-y-full pt-1 text-right text-base md:text-lg lg:text-xl font-black uppercase tracking-widest text-white/80 drop-shadow-[0_2px_6px_rgba(0,0,0,1)] pr-1">
+                                APRIL 09, 10, 11
+                            </div>
+                        </div>
                     </div>
 
                     <div className="hero-info flex flex-col items-center">
-
-                        <div className="text-6xl md:text-7xl font-black uppercase tracking-wider text-white drop-shadow-[0_4px_8px_rgba(0,0,0,1)] my-8 text-center px-4">
-                            APRIL 09, 10, 11
-                        </div>
-
-                        {/* Countdown - Adjusted for mobile */}
-                        <div className="premium-countdown flex flex-wrap justify-center gap-2 mb-2 scale-50 md:scale-75">
-                            {[
-                                { value: timeLeft.days, label: 'DAYS' },
-                                { value: timeLeft.hours, label: 'HOURS' },
-                                { value: timeLeft.minutes, label: 'MINS' },
-                                { value: timeLeft.seconds, label: 'SECS' }
-                            ].map(({ value, label }) => (
-                                <div key={label} className="countdown-card">
-                                    <div className="card-top">
-                                        <span className="countdown-number">
-                                            {value.toString().padStart(2, '0')}
-                                        </span>
-                                    </div>
-                                    <div className="card-bottom">
-                                        <span className="countdown-label">{label}</span>
-                                    </div>
-                                    <div className="glow-bar"></div>
-                                </div>
-                            ))}
-                        </div>
 
                         {/* <p className="hero-tagline text-center text-4xl md:text-7xl lg:text-[100px] xl:text-[140px] font-[1000] text-[#FF1A1A] drop-shadow-[0_6px_12px_rgba(0,0,0,1)] uppercase tracking-tight">
                             Bigger. Better. Bolder
@@ -126,21 +81,55 @@ const Home = () => {
                 {/* ABOUT SECTION */}
                 {/* Added border: 'none' to remove potential CSS border-bottom */}
                 <section id="about" className="about-section world-white" style={{ padding: '84px 0', border: 'none' }}>
-                    <div className="container">
-                        <div className="about-flex">
-                            <div className="about-text">
-                                <h2 className="section-title left uppercase ">The Highways</h2>
-                                <p>HIGHWAYS, the flagship fest of SVCE, continues to inspire, empower and entertain students with its showcase of cultural brilliance and artistic vitality. It offers a powerful stage for participants to express themselves, celebrate creativity and unveil their hidden talents.</p>
-                                <p>Uniting students from diverse backgrounds and traditions, HIGHWAYS 26 promises an unforgettable experience with a spectacular lineup of culturally rich performances and vibrant non-technical showcases. It stands as a celebration of talent, unity and the true spirit of festivity.</p>
-                            </div>
-                            <div className="about-image-container">
-                                <div className="image-frame" style={{ position: 'relative' }}>
-                                    <img src="https://images.unsplash.com/photo-1542332213-31f87348057f?q=80&w=1200&auto=format&fit=crop" alt="Natural Scenery" className="main-about-img" style={{ width: '100%', borderRadius: '15px' }} />
-                                </div>
-                            </div>
-                        </div>
+    {/* Setting a max-width ensures the layout doesn't stretch too far on huge screens */}
+    <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        
+        {/* alignItems: 'stretch' forces both columns to be exactly the same height regardless of text */}
+        <div className="about-flex" style={{ display: 'flex', gap: '80px', flexWrap: 'wrap', alignItems: 'stretch' }}>
+            
+            {/* --- LEFT SIDE: THE HIGHWAYS --- */}
+            {/* flex: '1 1 0' forces columns to be strictly equal width, ignoring content size */}
+            <div className="about-column" style={{ flex: '1 1 0', minWidth: '350px', display: 'flex', flexDirection: 'column' }}>
+                <div className="text-content" style={{ marginBottom: '40px' }}>
+                    <h2 className="section-title left uppercase">ABOUT HIGHWAYS</h2>
+                    <p>HIGHWAYS, the flagship fest of SVCE, continues to inspire, empower and entertain students with its showcase of cultural brilliance and artistic vitality. It offers a powerful stage for participants to express themselves, celebrate creativity and unveil their hidden talents.</p>
+                    <p>Uniting students from diverse backgrounds and traditions, HIGHWAYS 26 promises an unforgettable experience with a spectacular lineup of culturally rich performances and vibrant non-technical showcases. It stands as a celebration of talent, unity and the true spirit of festivity.</p>
+                </div>
+                
+                {/* Highways Video Placeholder */}
+                {/* marginTop: 'auto' pins this perfectly to the bottom. Fixed height ensures they match. */}
+                <div className="video-placeholder" style={{ marginTop: 'auto', width: '100%', height: '280px', borderRadius: '15px', overflow: 'hidden', position: 'relative', backgroundColor: '#111' }}>
+                    <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: '0.8' }}>
+                        <source src="/videos/highways-glimpse.mp4" type="video/mp4" />
+                    </video>
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', letterSpacing: '1px', fontWeight: 'bold', zIndex: 1, textAlign: 'center', width: '100%' }}>
+                        [ HIGHWAYS GLIMPSE VIDEO ]
                     </div>
-                </section>
+                </div>
+            </div>
+
+            {/* --- RIGHT SIDE: ABOUT SVCE --- */}
+            <div className="about-column" style={{ flex: '1 1 0', minWidth: '350px', display: 'flex', flexDirection: 'column' }}>
+                <div className="text-content" style={{ marginBottom: '40px' }}>
+                    <h2 className="section-title left uppercase">ABOUT SVCE</h2>
+                    <p>Sri Venkateswara College of Engineering (SVCE), established in 1985, is a leading engineering institution in Tamil Nadu. Guided by Dr. A.C. Muthiah, an industrialist and philanthropist, SVCE became the first private engineering college in Chennai to receive Autonomous status from UGC.</p>
+                    <p>Accredited by NAAC, its 12 B.E./B.Tech. and 9 M.E./M.Tech. programs are affiliated with Anna University. The college maintains a stellar placement record, with over 96% of eligible students placed annually in 150+ companies. Situated in Sriperumbudur's industrial corridor, its 95-acre campus features cutting-edge infrastructure.</p>
+                </div>
+                
+                {/* SVCE Video Placeholder */}
+                <div className="video-placeholder" style={{ marginTop: 'auto', width: '100%', height: '280px', borderRadius: '15px', overflow: 'hidden', position: 'relative', backgroundColor: '#111' }}>
+                    <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: '0.8' }}>
+                        <source src="/videos/svce-glimpse.mp4" type="video/mp4" />
+                    </video>
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', letterSpacing: '1px', fontWeight: 'bold', zIndex: 1, textAlign: 'center', width: '100%' }}>
+                        [ SVCE GLIMPSE VIDEO ]
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
                 {/* CELEBRITY GUESS SECTION */}
                 {/* Added border: 'none' to remove potential CSS border-top */}

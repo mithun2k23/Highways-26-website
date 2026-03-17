@@ -12,7 +12,8 @@ const Team = () => {
             background: '#050505', 
             minHeight: '100vh', 
             color: 'white',
-            overflowX: 'hidden'
+            overflowX: 'hidden',
+            overflowY: 'hidden'
         }}>
             <div className="container" style={{ width: '90%', maxWidth: '1400px', margin: '0 auto' }}>
                 <div className="team-header" style={{ marginBottom: 'clamp(3rem, 10vh, 5rem)', textAlign: 'center' }}>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
+import { applyCursorTheme } from '../lib/cursorTheme';
 
 interface POC {
     name: string;
@@ -1253,7 +1254,7 @@ const dayThemes = [
         id: 1,
         name: "IGNITION",
         label: "THE SPARK",
-        color: "#ffb7c5",
+        color: "#e8729a",
         kanji: "始",
         bgImage: "https://images.unsplash.com/photo-1522383225053-ed111181a951?q=80&w=2000&auto=format&fit=crop",
         tagline: "WHERE THE ROAD BEGINS",
@@ -1266,7 +1267,7 @@ const dayThemes = [
         id: 2,
         name: "OVERDRIVE",
         label: "THE VELOCITY",
-        color: "#f8f8ff",
+        color: "#f5e6c8",
         kanji: "速",
         bgImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop",
         tagline: "RIDING THE LIGHTNING",
@@ -1541,6 +1542,10 @@ const Events = () => {
         return dayThemes.find(t => t.id === filter.day) || dayThemes[0];
     }, [filter.day]);
 
+    useEffect(() => {
+      applyCursorTheme({ accent: activeTheme.color });
+    }, [activeTheme.color]);
+
     const filteredEvents = useMemo(() => {
         const categoryOrder = [
             "Music & Dance",
@@ -1789,8 +1794,6 @@ const Events = () => {
             <EventModal event={selectedEvent} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} activeTheme={activeTheme} />
 
             <style>{`
-              @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Bebas+Neue&family=Nunito+Sans:wght@400;700;900&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&family=Sawarabi+Mincho&display=swap');
-
                 .container { max-width: 1700px !important; width: 95%; margin: 0 auto; }
                 .event-premium-card:hover { border-color: ${activeTheme.color}66 !important; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 40px ${activeTheme.color}15; transform: translateY(-8px) !important; }
 
