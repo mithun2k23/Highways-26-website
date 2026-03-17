@@ -16,7 +16,7 @@ const ROUTE_CURSOR_THEMES: Array<{ match: (pathname: string) => boolean; theme: 
   { match: (pathname) => pathname.startsWith('/schedule'), theme: { accent: '#e8729a', core: '#fff4f8', ink: '#18080f' } },
   { match: (pathname) => pathname.startsWith('/passes'), theme: { accent: '#ef233c', core: '#fff2f4', ink: '#190507' } },
   { match: (pathname) => pathname.startsWith('/sponsors'), theme: { accent: '#d8b24a', core: '#fff5cf', ink: '#201504' } },
-  { match: (pathname) => true, theme: DEFAULT_CURSOR_THEME }
+  { match: () => true, theme: DEFAULT_CURSOR_THEME }
 ];
 
 const hexToRgb = (hex: string) => {
