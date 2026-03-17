@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './LoadingScreen.css';
+import { glimpsesImages } from '../data/glimpsesData';
 
-const LoadingScreen: React.FC = () => {
+interface LoadingScreenProps {
+  onFinish?: () => void;
+}
+
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinish }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [shouldRender, setShouldRender] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -15,8 +20,8 @@ const LoadingScreen: React.FC = () => {
     const essentialImages = [
       '/assets/logos/highways-logo.webp',
       '/assets/logos/svce-logo.webp',
-      // Adding back top-level background assets for clarity
       'https://images.unsplash.com/photo-1522383225053-ed111181a951?q=80&w=2000&auto=format&fit=crop',
+      ...glimpsesImages.map(img => `/assets/glimpses/${img}`)
     ];
 
     const essentialVideos = [
@@ -37,34 +42,44 @@ const LoadingScreen: React.FC = () => {
       const imagePromises = essentialImages.map(src => {
         return new Promise((resolve) => {
           const img = new Image();
+          if (src.startsWith('http')) img.crossOrigin = 'anonymous';
           // @ts-ignore
           img.fetchPriority = 'high';
           img.src = src;
-          img.onload = () => { updateProgress(); resolve(null); };
+          img.onload = async () => { 
+            try { await img.decode(); } catch (e) {} 
+            updateProgress(); 
+            resolve(null); 
+          };
           img.onerror = () => { updateProgress(); resolve(null); };
         });
       });
 
-      // Preload Videos (Wait for enough data to play)
+      // Preload Videos
       const videoPromises = essentialVideos.map(src => {
         return new Promise((resolve) => {
           const video = document.createElement('video');
           video.src = src;
           video.preload = 'auto';
+          video.muted = true; // Optimization for some browsers
           video.oncanplaythrough = () => { updateProgress(); resolve(null); };
           video.onerror = () => { updateProgress(); resolve(null); };
-          // Fallback if canplaythrough takes too long on slow connections
-          setTimeout(() => resolve(null), 5000); 
+          setTimeout(() => resolve(null), 3000); // Shorter fallback for videos
         });
       });
 
-      await Promise.all([...imagePromises, ...videoPromises]);
+      // Race against a total timeout to ensure we don't hang for "Massive Speed"
+      const preloadingTask = Promise.all([...imagePromises, ...videoPromises]);
+      const maxWaitTimeout = new Promise((resolve) => setTimeout(resolve, 8000));
+
+      await Promise.race([preloadingTask, maxWaitTimeout]);
       
-      // Artificial slight delay for smooth transition
+      // Zero delay for absolute performance
       setTimeout(() => {
         setIsLoading(false);
-        setTimeout(() => setShouldRender(false), 1000);
-      }, 500);
+        if (onFinish) onFinish();
+        setTimeout(() => setShouldRender(false), 500); // Ultra-fast disappear
+      }, 50);
     };
 
     preloadAssets();

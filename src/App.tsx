@@ -51,11 +51,33 @@ function ScrollToTop() {
 }
 
 function App() {
+  const handleLoadingFinish = () => {
+    // Start preloading all other pages in the background once main page is open
+    // This makes transition to other pages near-instant at any net speed
+    const pagesToPreload = [
+      () => import('./pages/Events'),
+      () => import('./pages/Sponsors'),
+      () => import('./pages/Team'),
+      () => import('./pages/FAQ'),
+      () => import('./pages/About'),
+      () => import('./pages/Schedule'),
+      () => import('./pages/DayEvents'),
+      () => import('./pages/Passes')
+    ];
+
+    // Start preloading immediately with very tight intervals
+    pagesToPreload.forEach((preload, index) => {
+      setTimeout(() => {
+        preload();
+      }, 50 + (index * 150)); // Very fast staggered loading (150ms intervals)
+    });
+  };
+
   return (
     <Router>
       <ScrollToTop />
       <div className="App">
-        <LoadingScreen />
+        <LoadingScreen onFinish={handleLoadingFinish} />
         <CustomCursor />
 
         <Navbar />

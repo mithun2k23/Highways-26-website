@@ -21,7 +21,7 @@ const About = () => {
                         <div className="video-frame" style={{ width: '100%', height: '280px', borderRadius: '10px', overflow: 'hidden', border: '5px solid var(--murasaki)', boxShadow: '10px 10px 0 var(--kin)', position: 'relative', backgroundColor: '#1a1a1a' }}>
                             <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: '0.7' }}>
                                 {/* Replace src with your actual video path */}
-                                <source src="/videos/highways-glimpse.mp4" type="video/mp4" />
+                                <source src="/videos/IMG_0151.MOV" type="video/mp4" />
                             </video>
                             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', letterSpacing: '2px', fontWeight: 'bold' }}>
                                 [ HIGHWAYS GLIMPSE ]
@@ -40,7 +40,7 @@ const About = () => {
                         <div className="video-frame" style={{ width: '100%', height: '280px', borderRadius: '10px', overflow: 'hidden', border: '5px solid var(--kin)', boxShadow: '10px 10px 0 var(--murasaki)', position: 'relative', backgroundColor: '#1a1a1a', marginTop: '20px' }}>
                             <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: '0.7' }}>
                                 {/* Replace src with your actual video path */}
-                                <source src="/videos/svce-glimpse.mp4" type="video/mp4" />
+                                <source src="/videos/IMG_0151.MOV" type="video/mp4" />
                             </video>
                             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', letterSpacing: '2px', fontWeight: 'bold' }}>
                                 [ SVCE GLIMPSE ]
