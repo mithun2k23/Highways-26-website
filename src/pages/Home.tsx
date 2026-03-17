@@ -79,8 +79,12 @@ const Home = () => {
 
                     <div className="hero-info flex flex-col items-center">
 
+                        <div className="text-3xl md:text-7xl font-black uppercase tracking-wider text-white drop-shadow-[0_4px_8px_rgba(0,0,0,1)] my-12">
+                            APRIL 09, 10, 11
+                        </div>
+
                         {/* Countdown - smaller */}
-                        <div className="premium-countdown flex flex-wrap justify-center gap-2 mb-2 scale-75">
+                        <div className="premium-countdown md:flex-wrap justify-center gap-2 mb-2 scale-75 hidden md:flex">
                             {[
                                 { value: timeLeft.days, label: 'DAYS' },
                                 { value: timeLeft.hours, label: 'HOURS' },
@@ -101,15 +105,9 @@ const Home = () => {
                             ))}
                         </div>
 
-                        {/* Bigger date - Significantly increased font size */}
-                        <div className="date-badge text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 uppercase tracking-wider text-[#FFD700] drop-shadow-[0_4px_8px_rgba(0,0,0,1)]">
-                            APRIL 09, 10, 11
-                        </div>
-
-                        {/* Bigger tagline - Ultra massive sizing with a bright red */}
-                        <p className="hero-tagline text-center text-4xl md:text-7xl lg:text-[100px] xl:text-[140px] font-[1000] text-[#FF1A1A] drop-shadow-[0_6px_12px_rgba(0,0,0,1)] uppercase tracking-tight">
+                        {/* <p className="hero-tagline text-center text-4xl md:text-7xl lg:text-[100px] xl:text-[140px] font-[1000] text-[#FF1A1A] drop-shadow-[0_6px_12px_rgba(0,0,0,1)] uppercase tracking-tight">
                             Bigger. Better. Bolder
-                        </p>
+                        </p> */}
                     </div>
 
                     <div className="hero-btns flex justify-center mt-4 md:mt-5">
@@ -131,8 +129,9 @@ const Home = () => {
                     <div className="container">
                         <div className="about-flex">
                             <div className="about-text">
-                                <h2 className="section-title left">THE SAGA BEGINS</h2>
-                                <p>Highways'26 is the annual flagship cultural festival of Sri Venkateswara College of Engineering, set to take place on April 9, 10 & 11. This 3-day extravaganza promises an unforgettable experience with over 50 events, featuring a diverse range of cultural, musical, and artistic performances. With participation from over 4000 students, Highways'26 is a melting pot of creativity and talent. Get ready to groove to the beats of pro shows and witness the vibrant energy of our students as they showcase their skills. Plus, catch exciting celebrity walk-ins!</p>
+                                <h2 className="section-title left uppercase ">The Highways</h2>
+                                <p>HIGHWAYS, the flagship fest of SVCE, continues to inspire, empower and entertain students with its showcase of cultural brilliance and artistic vitality. It offers a powerful stage for participants to express themselves, celebrate creativity and unveil their hidden talents.</p>
+                                <p>Uniting students from diverse backgrounds and traditions, HIGHWAYS 26 promises an unforgettable experience with a spectacular lineup of culturally rich performances and vibrant non-technical showcases. It stands as a celebration of talent, unity and the true spirit of festivity.</p>
                             </div>
                             <div className="about-image-container">
                                 <div className="image-frame" style={{ position: 'relative' }}>
@@ -147,7 +146,7 @@ const Home = () => {
                 {/* Added border: 'none' to remove potential CSS border-top */}
                 <section id="celebrities" className="celebrity-section" style={{ padding: '84px 0', border: 'none' }}>
                     <div className="container">
-                        <h2 className="section-title center">CELEBRITY GUESt</h2>
+                        <h2 className="section-title center">CELEBRITY GUEST</h2>
                         <div className="celebrity-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '36px' }}>
                             {[
                                 { id: 1, type: "GUEST", hint: "" },
