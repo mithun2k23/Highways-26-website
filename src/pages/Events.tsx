@@ -1517,7 +1517,7 @@ const BackgroundElements = ({ themeColor, activeKanji, dayId }: { themeColor: st
 };
 
 const Events = () => {
-    const isLocked = false;
+    const isLocked = true;
     const [filter, setFilter] = useState({ category: "All", day: 1 });
     const { scrollY } = useScroll();
     const yHero = useTransform(scrollY, [0, 500], [0, -120]);
@@ -1712,8 +1712,26 @@ const Events = () => {
                                 </div>
                             </div>
 
+                            {/* Coming Soon Text Element */}
+                            <div style={{ marginTop: '8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}>
+                                <motion.div 
+                                    animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.05, 1] }} 
+                                    transition={{ duration: 3, repeat: Infinity }}
+                                    style={{ 
+                                        color: activeTheme.color, 
+                                        fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', 
+                                        fontWeight: 950, 
+                                        letterSpacing: '15px', 
+                                        textTransform: 'uppercase',
+                                        textShadow: `0 0 30px ${activeTheme.color}88`
+                                    }}
+                                >
+                                    COMING SOON
+                                </motion.div>
+                            </div>
+
                             {/* Minimal Symbolic Footer */}
-                            <div style={{ marginTop: '5rem', display: 'flex', gap: '3rem', opacity: 0.3 }}>
+                            <div style={{ marginTop: '4rem', display: 'flex', gap: '3rem', opacity: 0.3 }}>
                                 <i className="fas fa-barcode" style={{ fontSize: '2rem', color: activeTheme.color }}></i>
                                 <div style={{ height: '40px', width: '1px', background: 'rgba(255,255,255,0.2)' }}></div>
                                 <i className="fas fa-microchip" style={{ fontSize: '2rem', color: activeTheme.color }}></i>

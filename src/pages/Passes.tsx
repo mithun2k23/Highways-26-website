@@ -10,7 +10,7 @@ const Passes = () => {
     const [error, setError] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         name: '',
         register_number: '',
         id_card_number: '',
@@ -74,14 +74,24 @@ const [formData, setFormData] = useState({
 
     return (
         <section className="passes-page" style={{ paddingTop: '150px', minHeight: '100vh', paddingBottom: '100px', background: 'radial-gradient(circle at top, #1a0104 0%, #050000 100%)', color: '#fff' }}>
-            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+            {/* Background Aesthetic Elements */}
+            <div style={{ position: 'fixed', top: '10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(239, 35, 60, 0.08) 0%, transparent 70%)', filter: 'blur(80px)', zIndex: 0 }} />
+            <div style={{ position: 'fixed', bottom: '10%', left: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0, 210, 255, 0.05) 0%, transparent 70%)', filter: 'blur(80px)', zIndex: 0 }} />
+
+            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px', position: 'relative', zIndex: 1 }}>
+                
                 <div className="passes-header" style={{ textAlign: 'center', marginBottom: '5rem' }}>
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 style={{ fontSize: 'clamp(3rem, 10vw, 5.5rem)', fontWeight: 950, letterSpacing: '-2px', textTransform: 'uppercase', marginBottom: '1rem', background: 'linear-gradient(to bottom, #fff 0%, #ef233c 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                            <div style={{ height: '1px', width: '60px', background: 'linear-gradient(to right, transparent, #ef233c)' }} />
+                            <span style={{ color: '#ef233c', fontSize: '0.9rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '8px' }}>THE ELITE EXPERIENCE</span>
+                            <div style={{ height: '1px', width: '60px', background: 'linear-gradient(to left, transparent, #ef233c)' }} />
+                        </div>
+                        <h1 style={{ fontSize: 'clamp(3rem, 10vw, 5.5rem)', fontWeight: 950, letterSpacing: '-2px', textTransform: 'uppercase', marginBottom: '1rem', background: 'linear-gradient(to bottom, #fff 0%, #ef233c 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: '"Orbitron", sans-serif' }}>
                             HIGHWAYS '26
                         </h1>
                         <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1.4rem', textTransform: 'uppercase', letterSpacing: '4px', fontWeight: 600 }}>EXCLUSIVES PASSES</p>
@@ -98,32 +108,38 @@ const [formData, setFormData] = useState({
                 }}>
                     {/* EARLY BIRD - ACTIVE */}
                     <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         whileHover={{ y: -15, scale: 1.03 }}
                         onClick={() => window.open('https://forms.gle/aQ3LGRZMHq9waVvg8', '_blank')}
                         style={{
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(239, 35, 60, 0.3)',
-                            borderRadius: '32px',
+                            background: 'rgba(255, 255, 255, 0.02)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(239, 35, 60, 0.2)',
+                            borderRadius: '40px',
                             padding: '3rem 2rem',
                             textAlign: 'center',
                             cursor: 'pointer',
                             position: 'relative',
-                            boxShadow: '0 30px 60px rgba(0,0,0,0.4), inset 0 0 20px rgba(239, 35, 60, 0.1)'
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.6)'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '24px', right: '24px', padding: '0.4rem 1rem', background: '#ef233c', color: 'white', fontWeight: 900, borderRadius: '100px', fontSize: '0.65rem', letterSpacing: '1px' }}>
+                        {/* Decorative background glow */}
+                        <div style={{ position: 'absolute', top: '-20%', left: '-20%', width: '140%', height: '140%', background: 'radial-gradient(circle, rgba(239, 35, 60, 0.05) 0%, transparent 60%)', pointerEvents: 'none' }} />
+
+                        <div style={{ position: 'absolute', top: '24px', right: '24px', padding: '0.4rem 1rem', background: '#ef233c', color: 'white', fontWeight: 900, borderRadius: '100px', fontSize: '0.65rem', letterSpacing: '1px', boxShadow: '0 10px 20px rgba(239, 35, 60, 0.3)' }}>
                             ACTIVE
                         </div>
-                        <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>EARLY BIRD</h3>
-                        <div style={{ color: '#ef233c', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>All-In-One Experience</div>
-                        <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                            Early bird discount
-Access to all Pro Shows
-Access to all free and standard events
+                        <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>EARLY BIRD</h3>
+                        <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>All-In-One Experience</div>
+                        <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                            Early bird discount<br/>
+                            Access to all Pro Shows<br/>
+                            Access to all free and standard events
                         </p>
-                        <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                            <span style={{ fontSize: '1.4rem', color: '#ef233c' }}>₹</span>899
+                        <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', textShadow: '0 0 30px rgba(239, 35, 60, 0.6)' }}>
+                            <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>899
                         </div>
                         <button 
                             onClick={(e) => {
@@ -132,57 +148,65 @@ Access to all free and standard events
                             }}
                             style={{
                                 width: '100%',
-                                padding: '1.1rem',
+                                padding: '1.2rem',
                                 background: '#ef233c',
                                 border: 'none',
                                 color: 'white',
-                                borderRadius: '16px',
+                                borderRadius: '24px',
                                 fontWeight: 950,
                                 letterSpacing: '2px',
                                 cursor: 'pointer',
                                 textTransform: 'uppercase',
-                                fontSize: '0.9rem'
+                                fontSize: '0.9rem',
+                                boxShadow: '0 10px 20px rgba(239, 35, 60, 0.4)',
+                                position: 'relative',
+                                zIndex: 1
                             }}
                         >GET PASS NOW</button>
                     </motion.div>
 
                     {/* NORMAL - LOCKED/X */}
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
                         style={{
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(239, 35, 60, 0.3)',
-                            borderRadius: '32px',
+                            background: 'rgba(255, 255, 255, 0.01)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(239, 35, 60, 0.1)',
+                            borderRadius: '40px',
                             padding: '3rem 2rem',
                             textAlign: 'center',
                             position: 'relative',
                             overflow: 'hidden',
-                            boxShadow: '0 30px 60px rgba(0,0,0,0.4), inset 0 0 20px rgba(239, 35, 60, 0.1)'
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.4)',
+                            opacity: 0.8
                         }}
                     >
                         {/* THE X DESIGN */}
                         <div style={{ position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                           <div style={{ position: 'absolute', width: '120%', height: '2px', background: 'rgba(239, 35, 60, 0.4)', transform: 'rotate(45deg)' }}></div>
-                           <div style={{ position: 'absolute', width: '120%', height: '2px', background: 'rgba(239, 35, 60, 0.4)', transform: 'rotate(-45deg)' }}></div>
-                           <div style={{ background: '#0a0a0a', padding: '10px 20px', borderRadius: '10px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 900, zIndex: 11, fontSize: '1rem', letterSpacing: '2px' }}>LOCKED</div>
+                           <div style={{ position: 'absolute', width: '130%', height: '2px', background: 'rgba(239, 35, 60, 0.3)', transform: 'rotate(45deg)' }}></div>
+                           <div style={{ position: 'absolute', width: '130%', height: '2px', background: 'rgba(239, 35, 60, 0.3)', transform: 'rotate(-45deg)' }}></div>
+                           <div style={{ background: '#0a0a0a', padding: '10px 25px', borderRadius: '15px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 950, zIndex: 11, fontSize: '1rem', letterSpacing: '3px' }}>LOCKED</div>
                         </div>
 
-                        <div style={{ filter: 'blur(8px)', opacity: 0.65 }}>
-                            <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>NORMAL PASS</h3>
-                            <div style={{ color: '#ef233c', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>Standard Access</div>
-                            <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                        <div style={{ filter: 'blur(8px)', opacity: 0.5 }}>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>NORMAL PASS</h3>
+                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>Standard Access</div>
+                            <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
                                 General pass access for the festival experience with standard event entry.
                             </p>
-                            <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                <span style={{ fontSize: '1.4rem', color: '#ef233c' }}>₹</span>TBA
+                            <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>TBA
                             </div>
                             <button disabled style={{
                                 width: '100%',
-                                padding: '1.1rem',
+                                padding: '1.2rem',
                                 background: '#ef233c',
                                 border: 'none',
                                 color: 'white',
-                                borderRadius: '16px',
+                                borderRadius: '24px',
                                 fontWeight: 950,
                                 letterSpacing: '2px',
                                 cursor: 'not-allowed',
@@ -190,45 +214,50 @@ Access to all free and standard events
                                 fontSize: '0.9rem'
                             }}>GET PASS NOW</button>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* OTHER COLLEGE - LOCKED/X */}
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
                         style={{
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(239, 35, 60, 0.3)',
-                            borderRadius: '32px',
+                            background: 'rgba(255, 255, 255, 0.01)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(239, 35, 60, 0.1)',
+                            borderRadius: '40px',
                             padding: '3rem 2rem',
                             textAlign: 'center',
                             position: 'relative',
                             overflow: 'hidden',
-                            boxShadow: '0 30px 60px rgba(0,0,0,0.4), inset 0 0 20px rgba(239, 35, 60, 0.1)'
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.4)',
+                            opacity: 0.8
                         }}
                     >
                          {/* THE X DESIGN */}
                          <div style={{ position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                           <div style={{ position: 'absolute', width: '120%', height: '2px', background: 'rgba(239, 35, 60, 0.4)', transform: 'rotate(45deg)' }}></div>
-                           <div style={{ position: 'absolute', width: '120%', height: '2px', background: 'rgba(239, 35, 60, 0.4)', transform: 'rotate(-45deg)' }}></div>
-                           <div style={{ background: '#0a0a0a', padding: '10px 20px', borderRadius: '10px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 900, zIndex: 11, fontSize: '1rem', letterSpacing: '2px' }}>COMING SOON</div>
+                           <div style={{ position: 'absolute', width: '130%', height: '2px', background: 'rgba(239, 35, 60, 0.3)', transform: 'rotate(45deg)' }}></div>
+                           <div style={{ position: 'absolute', width: '130%', height: '2px', background: 'rgba(239, 35, 60, 0.3)', transform: 'rotate(-45deg)' }}></div>
+                           <div style={{ background: '#0a0a0a', padding: '10px 25px', borderRadius: '15px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 950, zIndex: 11, fontSize: '1rem', letterSpacing: '3px' }}>COMING SOON</div>
                         </div>
 
-                        <div style={{ filter: 'blur(8px)', opacity: 0.65 }}>
-                            <h3 style={{ fontSize: '2rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px' }}>NON-SVCE</h3>
-                            <div style={{ color: '#ef233c', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase' }}>External Entry</div>
-                            <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                        <div style={{ filter: 'blur(8px)', opacity: 0.5 }}>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>NON-SVCE</h3>
+                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>External Entry</div>
+                            <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
                                 Pass access for non-SVCE participants with details to be announced shortly.
                             </p>
-                            <div style={{ fontSize: '3rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                <span style={{ fontSize: '1.4rem', color: '#ef233c' }}>₹</span>TBA
+                            <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>TBA
                             </div>
                             <button disabled style={{
                                 width: '100%',
-                                padding: '1.1rem',
+                                padding: '1.2rem',
                                 background: '#ef233c',
                                 border: 'none',
                                 color: 'white',
-                                borderRadius: '16px',
+                                borderRadius: '24px',
                                 fontWeight: 950,
                                 letterSpacing: '2px',
                                 cursor: 'not-allowed',
@@ -236,7 +265,7 @@ Access to all free and standard events
                                 fontSize: '0.9rem'
                             }}>GET PASS NOW</button>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
@@ -253,14 +282,14 @@ Access to all free and standard events
                             exit={{ opacity: 0, scale: 0.9, y: 30 }}
                             style={{
                                 background: '#0a0a0a', width: '100%', maxWidth: '850px',
-                                maxHeight: '95vh', overflowY: 'auto', borderRadius: '32px',
+                                maxHeight: '95vh', overflowY: 'auto', borderRadius: '40px',
                                 border: '1px solid rgba(255,255,255,0.05)', position: 'relative',
-                                padding: '3.5rem', boxShadow: '0 50px 100px rgba(0,0,0,0.8)'
+                                padding: '4rem', boxShadow: '0 50px 100px rgba(0,0,0,0.8)'
                             }}
                         >
                             <button 
                                 onClick={() => setIsModalOpen(false)}
-                                style={{ position: 'absolute', top: '25px', right: '25px', background: 'rgba(255,255,255,0.05)', border: 'none', color: '#fff', cursor: 'pointer', padding: '10px', borderRadius: '50%', transition: '0.3s' }}
+                                style={{ position: 'absolute', top: '30px', right: '30px', background: 'rgba(255,255,255,0.05)', border: 'none', color: '#fff', cursor: 'pointer', padding: '12px', borderRadius: '50%', transition: '0.3s' }}
                             >
                                 <X size={20} />
                             </button>
@@ -353,12 +382,12 @@ Access to all free and standard events
                                             </div>
                                         </div>
 
-                                        <div style={{ padding: '3rem 2rem', background: '#fff', borderRadius: '24px', textAlign: 'center', margin: '1rem 0', boxShadow: 'inset 0 0 40px rgba(0,0,0,0.05)' }}>
+                                        <div style={{ padding: '3rem 2rem', background: '#fff', borderRadius: '30px', textAlign: 'center', margin: '1rem 0', boxShadow: 'inset 0 0 40px rgba(0,0,0,0.05)' }}>
                                             <p style={{ color: '#ef233c', fontWeight: 900, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Step 1: Payment</p>
                                             <h4 style={{ color: '#000', fontSize: '1.4rem', fontWeight: 950, marginBottom: '2rem' }}>Scan the Official Bank QR</h4>
                                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                                <div style={{ padding: '15px', background: '#000', borderRadius: '20px' }}>
-                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=YOUR_PAYMENT_UPI_LINK" alt="Payment QR" style={{ width: '220px', height: '220px', borderRadius: '10px' }} />
+                                                <div style={{ padding: '15px', background: '#000', borderRadius: '25px' }}>
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=YOUR_PAYMENT_UPI_LINK" alt="Payment QR" style={{ width: '220px', height: '220px', borderRadius: '15px' }} />
                                                 </div>
                                             </div>
                                             <p style={{ color: '#666', fontSize: '0.85rem', marginTop: '1.5rem', fontWeight: 500 }}>Highways '26 Official Payment Gateway</p>
@@ -378,8 +407,8 @@ Access to all free and standard events
                                                         style={{
                                                             background: 'rgba(255,255,255,0.03)',
                                                             border: '2px dashed rgba(255,255,255,0.1)',
-                                                            borderRadius: '16px',
-                                                            padding: '1.1rem',
+                                                            borderRadius: '20px',
+                                                            padding: '1.4rem',
                                                             textAlign: 'center',
                                                             cursor: 'pointer',
                                                             color: formData.payment_screenshot_base64 ? '#4ade80' : 'rgba(255,255,255,0.4)',
@@ -412,7 +441,7 @@ Access to all free and standard events
                                             type="submit" 
                                             style={{
                                                 background: '#ef233c', color: 'white', border: 'none',
-                                                padding: '1.4rem', borderRadius: '16px', fontWeight: 950,
+                                                padding: '1.8rem', borderRadius: '24px', fontWeight: 950,
                                                 fontSize: '1.1rem', marginTop: '1rem', cursor: loading ? 'not-allowed' : 'pointer',
                                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem',
                                                 transition: '0.3s', boxShadow: '0 20px 40px rgba(239, 35, 60, 0.2)'
@@ -433,10 +462,10 @@ Access to all free and standard events
 
 const inputStyle = {
     width: '100%',
-    padding: '1rem 1.2rem',
+    padding: '1.2rem 1.5rem',
     background: 'rgba(255,255,255,0.02)',
     border: '1.5px solid rgba(255,255,255,0.08)',
-    borderRadius: '16px',
+    borderRadius: '20px',
     color: 'white',
     fontSize: '1rem',
     outline: 'none',

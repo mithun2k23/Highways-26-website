@@ -10,27 +10,28 @@ const PreFooter = () => {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                        {/* New Contacts */}
                         <div className="ds-card space-y-5">
-                            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight">Pranneeth D K</h3>
+                            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight">Dhayakar T</h3>
                             <div className="space-y-2 ds-body">
-                                <a className="block hover:text-white transition duration-300" href="tel:+916379560034">+91 6379560034</a>
-                                <a className="block hover:text-white transition duration-300" href="mailto:mail@pranneethdk.in">mail@pranneethdk.in</a>
+                                <a className="block hover:text-white transition duration-300" href="tel:+917305802678">+91 7305802678</a>
+                                <a className="block hover:text-white transition duration-300" href="mailto:2022ad0583@svce.ac.in">2022ad0583@svce.ac.in</a>
                             </div>
                         </div>
 
                         <div className="ds-card space-y-5">
-                            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight">Sowndhar V</h3>
+                            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight">Divyashree M</h3>
                             <div className="space-y-2 ds-body">
-                                <a className="block hover:text-white transition duration-300" href="tel:+919025366598">+91 9025366598</a>
-                                <a className="block hover:text-white transition duration-300" href="mailto:sowndhar06.v@gmail.com">sowndhar06.v@gmail.com</a>
+                                <a className="block hover:text-white transition duration-300" href="tel:+917339697795">+91 7339697795</a>
+                                <a className="block hover:text-white transition duration-300" href="mailto:2023ad0133@svce.ac.in">2023ad0133@svce.ac.in</a>
                             </div>
                         </div>
 
                         <div className="ds-card space-y-5">
-                            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight">Sharvesh</h3>
+                            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight">Kabilan G</h3>
                             <div className="space-y-2 ds-body">
-                                <a className="block hover:text-white transition duration-300" href="tel:+916380168529">+91 6380168529</a>
-                                <span className="block italic opacity-60">Event Coordinator</span>
+                                <a className="block hover:text-white transition duration-300" href="tel:+917639700627">+91 7639700627</a>
+                                <a className="block hover:text-white transition duration-300" href="mailto:2023ce0393@svce.ac.in">2023ce0393@svce.ac.in</a>
                             </div>
                         </div>
                     </div>

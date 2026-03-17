@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const sponsorsData = [
-    { name: "Greenstar", tier: "Special Sponsor", logo: "https://api.dicebear.com/7.x/initials/svg?seed=GS", desc: "Official Special Sponsor." },
-    { name: "Gamistry", tier: "Event Sponsor", logo: "https://api.dicebear.com/7.x/initials/svg?seed=GM", desc: "Powering the events." },
-    { name: "Zebronics", tier: "Event Sponsor", logo: "https://api.dicebear.com/7.x/initials/svg?seed=ZB", desc: "Elevating the experience." },
-    { name: "Xmold Polymers", tier: "Sponsor", logo: "https://api.dicebear.com/7.x/initials/svg?seed=XP", desc: "Proud sponsor of Highways'26." }
+    { name: "Greenstar", tier: "Special Sponsor", logo: "/assets/logos/green star.png", desc: "Official Special Sponsor." },
+    { name: "Gamistry", tier: "Event Sponsor", logo: "/assets/logos/gamistry.png", desc: "Powering the events." },
+    { name: "Think Music", tier: "Event Sponsor", logo: "/assets/logos/think music.jpg", desc: "Elevating the experience." },
+    { name: "Xmold Polymers", tier: "Sponsor", logo: "/assets/logos/xmold.png", desc: "Proud sponsor of Highways'26." }
 ];
 
 const Sponsors = () => {
@@ -41,7 +41,12 @@ const Sponsors = () => {
                             className="sponsor-card"
                         >
                             <div className="sponsor-logo-wrap">
-                                <img src={sponsor.logo} alt={sponsor.name} className="sponsor-logo" />
+                                <img 
+                                    src={sponsor.logo} 
+                                    alt={sponsor.name} 
+                                    className="sponsor-logo" 
+                                    style={sponsor.name === "Xmold Polymers" ? { width: '80px', height: '80px', margin: '20px' } : {}}
+                                />
                                 <div className="sponsor-tier-badge">{sponsor.tier}</div>
                             </div>
                             <div className="sponsor-info">
@@ -52,13 +57,6 @@ const Sponsors = () => {
                     ))}
                 </div>
 
-                <div className="sponsor-cta">
-                    <div className="cta-glass">
-                        <h2>BECOME A PATRON</h2>
-                        <p>Join our journey to create the most immersive Japanese Carnival experience in Southern India.</p>
-                        <a href="mailto:highways@svce.ac.in" className="cta-btn">GET IN TOUCH</a>
-                    </div>
-                </div>
             </div>
 
             <style>{`
@@ -140,12 +138,11 @@ const Sponsors = () => {
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;
-                    filter: grayscale(1) brightness(1.5);
+                    object-fit: contain;
                     transition: all 0.4s ease;
                 }
 
                 .sponsor-card:hover .sponsor-logo {
-                    filter: grayscale(0);
                     transform: scale(1.1);
                 }
 
@@ -173,53 +170,8 @@ const Sponsors = () => {
                     line-height: 1.6;
                 }
 
-                .sponsor-cta {
-                    display: flex;
-                    justify-content: center;
-                }
-
-                .cta-glass {
-                    background: linear-gradient(135deg, rgba(255,0,0,0.1), rgba(0,0,0,0.1));
-                    border: 1px solid rgba(255,0,0,0.2);
-                    padding: 4rem;
-                    border-radius: 30px;
-                    text-align: center;
-                    max-width: 800px;
-                    backdrop-filter: blur(20px);
-                }
-
-                .cta-glass h2 {
-                    font-size: 2.5rem;
-                    font-weight: 900;
-                    margin-bottom: 1.5rem;
-                }
-
-                .cta-glass p {
-                    color: rgba(255,255,255,0.6);
-                    margin-bottom: 2.5rem;
-                    font-size: 1.1rem;
-                }
-
-                .cta-btn {
-                    display: inline-block;
-                    padding: 1.2rem 3rem;
-                    background: #ff0000;
-                    color: white;
-                    text-decoration: none;
-                    font-weight: 900;
-                    border-radius: 12px;
-                    letter-spacing: 2px;
-                    transition: all 0.3s ease;
-                }
-
-                .cta-btn:hover {
-                    box-shadow: 0 0 30px rgba(255,0,0,0.5);
-                    transform: scale(1.05);
-                }
-
                 @media (max-width: 768px) {
                     .sponsors-title { font-size: 2.5rem; }
-                    .cta-glass { padding: 3rem 1.5rem; }
                 }
             `}</style>
         </section>

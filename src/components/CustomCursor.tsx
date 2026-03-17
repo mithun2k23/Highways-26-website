@@ -144,11 +144,30 @@ const CustomCursor = () => {
         aria-hidden="true"
       >
         <div className="ninja-cursor-ring" />
-        <svg className="ninja-cursor-blade" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M36 5L51 26L43 31L47 51L36 67L25 51L29 31L21 26L36 5Z" fill="var(--cursor-accent)" stroke="var(--cursor-ink)" strokeWidth="3" strokeLinejoin="round" />
-          <circle cx="36" cy="41" r="5.5" fill="var(--cursor-core)" stroke="var(--cursor-ink)" strokeWidth="3" />
-          <path d="M36 8L45 22L36 26L27 22L36 8Z" fill="var(--cursor-core)" opacity="0.95" />
-          <path d="M33 50H39L41 58L36 65L31 58L33 50Z" fill="var(--cursor-ink)" opacity="0.85" />
+        <svg className="ninja-cursor-shuriken" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Main Shuriken Body */}
+          <path 
+            d="M50 5 L62 38 L95 50 L62 62 L50 95 L38 62 L5 50 L38 38 L50 5Z" 
+            fill="var(--cursor-accent)" 
+            stroke="var(--cursor-ink)" 
+            strokeWidth="2" 
+            strokeLinejoin="round" 
+          />
+          {/* Inner Blades */}
+          <path 
+            d="M50 20 L55 45 L80 50 L55 55 L50 80 L45 55 L20 50 L45 45 L50 20Z" 
+            fill="var(--cursor-ink)" 
+            opacity="0.4"
+          />
+          {/* Decorative Holes */}
+          <circle cx="50" cy="50" r="8" fill="var(--cursor-ink)" stroke="var(--cursor-accent)" strokeWidth="1" />
+          <circle cx="50" cy="50" r="4" fill="var(--cursor-core)" />
+          
+          {/* Glow points on tips */}
+          <circle cx="50" cy="12" r="2" fill="var(--cursor-core)" />
+          <circle cx="88" cy="50" r="2" fill="var(--cursor-core)" />
+          <circle cx="50" cy="88" r="2" fill="var(--cursor-core)" />
+          <circle cx="12" cy="50" r="2" fill="var(--cursor-core)" />
         </svg>
       </div>
     </>

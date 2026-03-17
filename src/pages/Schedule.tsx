@@ -182,8 +182,8 @@ const Schedule = () => {
                     <AnimatePresence mode="wait">
                         <motion.div key={activeDay} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -30 }} transition={{ duration: 1 }}>
                             <span style={{ color: activeTheme.color, fontSize: '1rem', fontWeight: 900, letterSpacing: '12px', textTransform: 'uppercase', display: 'block', marginBottom: '1.5rem' }}>{activeTheme.tagline}</span>
-                            <h1 style={{
-                                fontSize: 'clamp(5rem, 15vw, 12rem)',
+                            <h2 style={{
+                                fontSize: 'clamp(3rem, 10vw, 10rem)',
                                 fontWeight: 950,
                                 textTransform: 'uppercase',
                                 letterSpacing: activeTheme.id === 1 ? '15px' : (activeTheme.id === 3 ? '-10px' : '-4px'),
@@ -191,7 +191,7 @@ const Schedule = () => {
                                 color: 'white'
                             }}>
                                 THE <span style={{ color: activeTheme.color }}>CHRONIC</span>
-                            </h1>
+                            </h2>
                             <h2 style={{ fontSize: '3vw', fontWeight: 900, letterSpacing: '20px', color: 'rgba(255,255,255,0.2)', textTransform: 'uppercase', marginTop: '1rem' }}>SAGA OF EVENTS</h2>
                         </motion.div>
                     </AnimatePresence>
@@ -247,95 +247,113 @@ const Schedule = () => {
                             overflow: 'hidden',
                             boxShadow: `0 0 120px ${activeTheme.color}08`
                         }}>
-                             {/* Temporal Distortion Visuals */}
-                             <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-                                <motion.div 
-                                    animate={{ 
+                            {/* Temporal Distortion Visuals */}
+                            <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+                                <motion.div
+                                    animate={{
                                         opacity: [0.05, 0.15, 0.05],
                                         scale: [1, 1.1, 1]
                                     }}
                                     transition={{ duration: 8, repeat: Infinity }}
                                     style={{ position: 'absolute', inset: 0, background: `radial-gradient(circle, ${activeTheme.color}22 0%, transparent 70%)` }}
                                 />
-                                <div style={{ 
-                                    position: 'absolute', 
-                                    inset: 0, 
-                                    background: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")', 
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    background: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")',
                                     opacity: 0.1,
                                     mixBlendMode: 'overlay'
                                 }} />
-                             </div>
+                            </div>
 
-                             {/* Symbolic Temporal Lock */}
-                             <div style={{ position: 'relative', width: '320px', height: '320px' }}>
-                                 {/* Circular Time Fractal Ring */}
-                                 <motion.div
-                                     animate={{ rotate: 360 }}
-                                     transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                                     style={{ position: 'absolute', inset: 0, border: `1px solid ${activeTheme.color}33`, borderRadius: '50%' }}
-                                 >
-                                     {[...Array(12)].map((_, i) => (
-                                         <div key={i} style={{ 
-                                             position: 'absolute', 
-                                             top: '10px', 
-                                             left: '50%', 
-                                             height: '15px', 
-                                             width: '2px', 
-                                             background: activeTheme.color, 
-                                             opacity: 0.4,
-                                             transformOrigin: '0 150px',
-                                             transform: `translateX(-50%) rotate(${i * 30}deg)`
-                                         }} />
-                                     ))}
-                                 </motion.div>
+                            {/* Symbolic Temporal Lock */}
+                            <div style={{ position: 'relative', width: '320px', height: '320px' }}>
+                                {/* Circular Time Fractal Ring */}
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                                    style={{ position: 'absolute', inset: 0, border: `1px solid ${activeTheme.color}33`, borderRadius: '50%' }}
+                                >
+                                    {[...Array(12)].map((_, i) => (
+                                        <div key={i} style={{
+                                            position: 'absolute',
+                                            top: '10px',
+                                            left: '50%',
+                                            height: '15px',
+                                            width: '2px',
+                                            background: activeTheme.color,
+                                            opacity: 0.4,
+                                            transformOrigin: '0 150px',
+                                            transform: `translateX(-50%) rotate(${i * 30}deg)`
+                                        }} />
+                                    ))}
+                                </motion.div>
 
-                                 {/* Pulsing Hourglass Core */}
-                                 <motion.div
-                                     animate={{ 
-                                         scale: [0.95, 1.05, 0.95],
-                                         rotate: [0, 5, -5, 0]
-                                     }}
-                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                     style={{ position: 'absolute', inset: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                                 >
-                                     <svg width="100" height="150" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: `drop-shadow(0 0 25px ${activeTheme.color})` }}>
-                                         <motion.path 
+                                {/* Pulsing Hourglass Core */}
+                                <motion.div
+                                    animate={{
+                                        scale: [0.95, 1.05, 0.95],
+                                        rotate: [0, 5, -5, 0]
+                                    }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    style={{ position: 'absolute', inset: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                >
+                                    <svg width="100" height="150" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: `drop-shadow(0 0 25px ${activeTheme.color})` }}>
+                                        <motion.path
                                             animate={{ fill: activeTheme.color }}
                                             d="M5 5H45L25 40L5 5Z" opacity="0.3"
-                                         />
-                                         <motion.path 
+                                        />
+                                        <motion.path
                                             animate={{ fill: activeTheme.color }}
                                             d="M5 75H45L25 40L5 75Z" opacity="0.1"
-                                         />
-                                         <path d="M5 5V75" stroke={activeTheme.color} strokeWidth="2" opacity="0.5"/>
-                                         <path d="M45 5V75" stroke={activeTheme.color} strokeWidth="2" opacity="0.5"/>
-                                     </svg>
-                                 </motion.div>
+                                        />
+                                        <path d="M5 5V75" stroke={activeTheme.color} strokeWidth="2" opacity="0.5" />
+                                        <path d="M45 5V75" stroke={activeTheme.color} strokeWidth="2" opacity="0.5" />
+                                    </svg>
+                                </motion.div>
 
-                                 {/* Chromatic Aberration Orbitals */}
-                                 <motion.div
-                                     animate={{ rotate: -360 }}
-                                     transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                                     style={{ position: 'absolute', inset: '40px', border: `1px dashed rgba(255,255,255,0.1)`, borderRadius: '50%' }}
-                                 />
-                             </div>
+                                {/* Chromatic Aberration Orbitals */}
+                                <motion.div
+                                    animate={{ rotate: -360 }}
+                                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                                    style={{ position: 'absolute', inset: '40px', border: `1px dashed rgba(255,255,255,0.1)`, borderRadius: '50%' }}
+                                />
+                            </div>
 
-                             {/* Abstract Status Indicators */}
-                             <div style={{ marginTop: '5rem', display: 'flex', gap: '4rem', opacity: 0.2 }}>
-                                 <div style={{ width: '40px', height: '2px', background: activeTheme.color }}></div>
-                                 <div style={{ width: '40px', height: '2px', background: 'white' }}></div>
-                                 <div style={{ width: '40px', height: '2px', background: activeTheme.color }}></div>
-                             </div>
+                            {/* Coming Soon Text Element */}
+                            <div style={{ marginTop: '7rem', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}>
+                                <motion.div
+                                    animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.05, 1] }}
+                                    transition={{ duration: 3, repeat: Infinity }}
+                                    style={{
+                                        color: activeTheme.color,
+                                        fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
+                                        fontWeight: 950,
+                                        letterSpacing: '15px',
+                                        textTransform: 'uppercase',
+                                        textShadow: `0 0 30px ${activeTheme.color}88`
+                                    }}
+                                >
+                                    COMING SOON
+                                </motion.div>
+                            </div>
 
-                             {/* Distortion Overlay */}
-                             <motion.div
-                                 animate={{ 
-                                     opacity: [1, 0.8, 1, 0.6, 1],
-                                     scale: [1, 1.02, 1]
-                                 }}
-                                 transition={{ duration: 0.2, repeat: Infinity, repeatDelay: 3 }}
-                                 style={{ position: 'absolute', inset: 0, background: `linear-gradient(45deg, ${activeTheme.color}05, transparent)`, pointerEvents: 'none' }}
-                             />
+                            {/* Abstract Status Indicators */}
+                            <div style={{ marginTop: '4rem', display: 'flex', gap: '4rem', opacity: 0.2 }}>
+                                <div style={{ width: '40px', height: '2px', background: activeTheme.color }}></div>
+                                <div style={{ width: '40px', height: '2px', background: 'white' }}></div>
+                                <div style={{ width: '40px', height: '2px', background: activeTheme.color }}></div>
+                            </div>
+
+                            {/* Distortion Overlay */}
+                            <motion.div
+                                animate={{
+                                    opacity: [1, 0.8, 1, 0.6, 1],
+                                    scale: [1, 1.02, 1]
+                                }}
+                                transition={{ duration: 0.2, repeat: Infinity, repeatDelay: 3 }}
+                                style={{ position: 'absolute', inset: 0, background: `linear-gradient(45deg, ${activeTheme.color}05, transparent)`, pointerEvents: 'none' }}
+                            />
                         </div>
                     )}
 

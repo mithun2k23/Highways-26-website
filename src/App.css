@@ -342,16 +342,16 @@ body.menu-open {
 }
 
 .ninja-cursor {
-  width: 60px;
-  height: 60px;
-  margin-left: -8px;
-  margin-top: -12px;
-  transform-origin: 18px 14px;
+  width: 40px;
+  height: 40px;
+  margin-left: -5px;
+  margin-top: -8px;
+  transform-origin: 12px 10px;
 }
 
 .ninja-cursor-ring {
   position: absolute;
-  inset: 15px;
+  inset: 10px;
   border-radius: 999px;
   border: 1px solid var(--cursor-outline);
   box-shadow: 0 0 18px var(--cursor-glow-strong);
@@ -359,13 +359,18 @@ body.menu-open {
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
-.ninja-cursor-blade {
+.ninja-cursor-shuriken {
   position: absolute;
-  inset: 0;
+  inset: -10px;
   overflow: visible;
   filter: drop-shadow(0 0 12px var(--cursor-glow-strong));
-  transform: rotate(24deg) scale(1);
+  animation: shuriken-spin 4s linear infinite;
   transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+@keyframes shuriken-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .ninja-cursor.is-interactive .ninja-cursor-ring {
@@ -373,8 +378,8 @@ body.menu-open {
   box-shadow: 0 0 26px var(--cursor-glow-strong);
 }
 
-.ninja-cursor.is-interactive .ninja-cursor-blade {
-  transform: rotate(24deg) scale(1.08);
+.ninja-cursor.is-interactive .ninja-cursor-shuriken {
+  animation-duration: 1s; /* Faster spin on hover */
   filter: drop-shadow(0 0 18px var(--cursor-glow-strong));
 }
 
@@ -382,20 +387,20 @@ body.menu-open {
   transform: scale(0.9);
 }
 
-.ninja-cursor.is-pressed .ninja-cursor-blade {
-  transform: rotate(24deg) scale(0.92);
+.ninja-cursor.is-pressed .ninja-cursor-shuriken {
+  transform: scale(0.92);
 }
 
 .ninja-cursor-aura {
-  width: 116px;
-  height: 116px;
-  margin-left: -58px;
-  margin-top: -58px;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
   border-radius: 50%;
   background:
     radial-gradient(circle, var(--cursor-glow) 0%, transparent 62%),
     radial-gradient(circle at 35% 35%, var(--cursor-glow-strong) 0%, transparent 22%);
-  filter: blur(14px);
+  filter: blur(10px);
   transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
