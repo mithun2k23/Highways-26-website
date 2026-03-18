@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import './App.css'
 
 // Components
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
+import PreFooter from './components/PreFooter'
+import CustomCursor from './components/CustomCursor'
 
 // Static Page Import (Critical for fast initial paint)
 import Home from './pages/Home'
@@ -74,7 +78,9 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <LoadingScreen onFinish={handleLoadingFinish} />
+        <CustomCursor />
 
+        <Navbar />
 
         <main className="main-content">
           <Suspense fallback={<PageLoader />}>
@@ -92,7 +98,9 @@ function App() {
             </Routes>
           </Suspense>
         </main>
-        
+
+        <PreFooter />
+        <Footer />
       </div>
     </Router>
   )
