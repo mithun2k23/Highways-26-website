@@ -158,6 +158,7 @@ export const teamData: TeamGroup[] = [
         "id": "vigilance",
         "name": "VIGILANCE",
         "members": [
+            { "name": "DHAYAKAR S", "role": "Lead", "spirit": "", "image": "/members/dhayakar.jpg" },
             { "name": "Venkat Sri Charan U", "role": "Sub lead", "spirit": "", "image": "/members/IMG_20250904_182443 - VENKAT SRI CHARAN U ECE.jpg" },
             { "name": "A.Bharath Rajh", "role": "Member", "spirit": "", "image": "/members/Bharath Rajh_Member_Vigilance Wing - 011_A.BHARATH RAJH _MECH" },
             { "name": "Adhitya R", "role": "Member", "spirit": "", "image": "/members/Adhitya-Member_Vigilance  - ADHITYA R EEE.jpg" },
