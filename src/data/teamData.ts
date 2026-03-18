@@ -129,7 +129,9 @@ export const teamData: TeamGroup[] = [
         "name": "PRODUCTION",
         "members": [
             { "name": "HARIHARAN A", "role": "Lead", "spirit": "", "image": "/members/IMG_20250201_220609_720 - HARIHARAN A CH.webp" },
-            { "name": "LIEOGIN PUNNIYA NESON R S", "role": "Member", "spirit": "", "image": "/members/20250917_123426 - LIEOGIN PUNNIYA NESON R S CHEM.jpg" }
+            { "name": "ELAMUKHIL K", "role": "Member", "spirit": "", "image": "/members/mukhil id  - ELAMUKHIL K CHEM.jpg" },
+            { "name": "LEO", "role": "Member", "spirit": "", "image": "/members/20250917_123426 - LIEOGIN PUNNIYA NESON R S CHEM.jpg" },
+            { "name": "S Goutham", "role": "Member", "spirit": "", "image": "/members/Goutham_member_production - S GOUTHAM CSE.jpg" }
         ]
     },
     {
