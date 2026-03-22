@@ -1,10 +1,10 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { applyCursorTheme } from '../lib/cursorTheme';
 import background from '../background.jpg';
 
 import { allEvents } from '../data/eventsData';
-import type { EventDetail } from '../data/eventsData';
 
 
 const categoriesList = ["All", "Music and Dance", "Quizzing, Debate and Literary", "Performance Arts", "Cinematic and Visual Arts", "Quizzes and Entertainment", "Innovation, Tech and Gaming"];
@@ -50,187 +50,33 @@ const dayThemes = [
   }
 ];
 
-const EventModal = ({ event, isOpen, onClose, activeTheme }: { event: EventDetail | null, isOpen: boolean, onClose: () => void, activeTheme: (typeof dayThemes)[number] }) => {
-  if (!event) return null;
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <div className="modal-overlay" style={{ position: 'fixed', inset: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(15px)' }}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="event-modal-container"
-            style={{
-              position: 'relative',
-              width: '100%',
-              maxWidth: '1000px',
-              maxHeight: '90vh',
-              background: '#0a0a0a',
-              borderRadius: '40px',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'row',
-              border: `1px solid ${activeTheme.color}33`,
-              boxShadow: `0 30px 100px -20px rgba(0,0,0,1), 0 0 50px ${activeTheme.color}11`,
-              fontFamily: activeTheme.bodyFont
-            }}
-          >
-            {/* Premium Close Button */}
-            <motion.button
-              onClick={onClose}
-              whileHover={{ scale: 1.08, backgroundColor: activeTheme.color, color: activeTheme.buttonText }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Close event details"
-              style={{
-                position: 'absolute',
-                top: '25px',
-                right: '25px',
-                background: 'rgba(0,0,0,0.72)',
-                border: `1px solid ${activeTheme.color}66`,
-                color: activeTheme.color,
-                width: '50px',
-                height: '50px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                zIndex: 10000,
-                backdropFilter: 'blur(10px)',
-                boxShadow: `0 10px 20px rgba(0,0,0,0.5), 0 0 16px ${activeTheme.color}33`,
-                fontSize: '2rem',
-                fontWeight: 800,
-                lineHeight: 1,
-                fontFamily: activeTheme.displayFont,
-                textShadow: '0 1px 2px rgba(0,0,0,0.6)'
-              }}
-            >
-              <span aria-hidden="true">×</span>
-            </motion.button>
-
-            {/* Details panel - now full width since images are removed */}
-            <div className="event-modal-content-panel modal-scroll-area" style={{ width: '100%', padding: 'clamp(2rem, 8vw, 4rem)', overflowY: 'auto', position: 'relative' }}>
-              <span style={{ color: activeTheme.color, fontSize: '0.8rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', fontFamily: activeTheme.displayFont }}>{event.category}</span>
-              <h2 style={{ fontSize: '3.5rem', fontWeight: 950, margin: '1rem 0', color: 'white', lineHeight: 0.9, fontFamily: activeTheme.displayFont }}>{event.title}</h2>
-
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'stretch', marginBottom: '2rem' }}>
-                <motion.button
-                  whileHover={{ scale: 1.02, backgroundColor: activeTheme.color, color: activeTheme.buttonText }}
-                  whileTap={{ scale: 0.98 }}
-                  style={{
-                    flex: 1,
-                    background: activeTheme.color,
-                    color: activeTheme.buttonText,
-                    border: 'none',
-                    padding: '1.2rem',
-                    borderRadius: '20px',
-                    fontWeight: 950,
-                    fontSize: '1rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    letterSpacing: '2px',
-                    textTransform: 'uppercase',
-                    fontFamily: activeTheme.displayFont
-                  }}
-                >
-                  REGISTER NOW
-                </motion.button>
-                {event.prizePool && event.prizePool !== "" && (
-                  <div style={{ 
-                    flex: 1, 
-                    background: 'rgba(255,255,255,0.05)', 
-                    padding: '1rem 1.5rem', 
-                    borderRadius: '20px', 
-                    border: `1px solid ${activeTheme.color}44`,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center'
-                  }}>
-                    <span style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.2rem' }}>PRIZE POOL</span>
-                    <span style={{ color: 'white', fontWeight: 950, fontSize: '1.4rem', lineHeight: 1 }}>{event.prizePool}</span>
-                  </div>
-                )}
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', margin: '2rem 0', background: 'rgba(255,255,255,0.02)', padding: '2rem', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                <div>
-                  <p style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Venue</p>
-                  <p style={{ color: 'white', fontWeight: 700 }}>{event.location}</p>
-                </div>
-                <div>
-                  <p style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Time & Date</p>
-                  <p style={{ color: 'white', fontWeight: 700 }}>{event.time} | {event.date}</p>
-                </div>
-                <div>
-                  <p style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Registration</p>
-                  <p style={{ color: event.regType === 'Free' ? '#4ade80' : activeTheme.color, fontWeight: 700 }}>{event.regType} {event.regFee && `(${event.regFee})`}</p>
-                </div>
-                <div>
-                  <p style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Team Format</p>
-                  <p style={{ color: 'white', fontWeight: 700 }}>{event.teamSize}</p>
-                </div>
-              </div>
-
-              <div style={{ marginBottom: '3rem' }}>
-                <h4 style={{ color: activeTheme.color, fontSize: '0.8rem', fontWeight: 900, letterSpacing: '2px', marginBottom: '1rem', fontFamily: activeTheme.displayFont }}>DESCRIPTION</h4>
-                <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>{event.description}</p>
-              </div>
-
-              <div style={{ marginBottom: '3rem' }}>
-                <h4 style={{ color: activeTheme.color, fontSize: '0.8rem', fontWeight: 900, letterSpacing: '2px', marginBottom: '1rem', fontFamily: activeTheme.displayFont }}>RULES & GUIDELINES</h4>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {event.rules.map((rule, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '1rem', color: 'rgba(255,255,255,0.6)', marginBottom: '0.8rem', fontSize: '0.9rem' }}>
-                      <span style={{ color: activeTheme.color }}>0{i + 1}</span> {rule}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-
-
-              <div style={{ marginBottom: '3rem' }}>
-                <h4 style={{ color: activeTheme.color, fontSize: '0.8rem', fontWeight: 900, letterSpacing: '2px', marginBottom: '1rem', fontFamily: activeTheme.displayFont }}>CONTACT ORGANIZERS</h4>
-                <div style={{ display: 'flex', gap: '3rem' }}>
-                  {event.pocs.map((poc, i) => (
-                    <div key={i}>
-                      <p style={{ color: 'white', fontWeight: 800, fontSize: '0.9rem' }}>{poc.name}</p>
-                      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>{poc.phone}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-
-            </div>
-          </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
-  );
-};
 
 
 
 const Events = () => {
   const isLocked = false;
-  const [filter, setFilter] = useState({ category: "All", day: 1 });
+  const [searchParams, setSearchParams] = useSearchParams();
+  
+  const filter = useMemo(() => {
+    return {
+      category: searchParams.get('category') || "All",
+      day: parseInt(searchParams.get('day') || "1", 10)
+    };
+  }, [searchParams]);
+
+  const setFilterState = (newFilter: { category?: string, day?: number }) => {
+    setSearchParams(prev => {
+        const next = new URLSearchParams(prev);
+        if (newFilter.category !== undefined) next.set('category', newFilter.category);
+        if (newFilter.day !== undefined) next.set('day', newFilter.day.toString());
+        return next;
+    }, { replace: true });
+  };
+
   const { scrollY } = useScroll();
   const yHero = useTransform(scrollY, [0, 500], [0, -120]);
   const opacityHero = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const [selectedEvent, setSelectedEvent] = useState<EventDetail | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const springX = useSpring(0, { stiffness: 100, damping: 30 });
   const springY = useSpring(0, { stiffness: 100, damping: 30 });
@@ -282,10 +128,6 @@ const Events = () => {
       });
   }, [filter]);
 
-  const handleOpenModal = (event: EventDetail) => {
-    setSelectedEvent(event);
-    setIsModalOpen(true);
-  };
 
   return (
     <section className={`events-cinematic-page style-${activeTheme.style}`} style={{
@@ -338,10 +180,10 @@ const Events = () => {
           </div>
         </motion.div>
 
-        {/* Day Chapters */}
+        {/* Day Chapters (Restored) */}
         <div className="day-navigator" style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '6rem', flexWrap: 'wrap', position: 'relative', zIndex: 10 }}>
           {dayThemes.map((day) => (
-            <motion.button key={day.id} onClick={() => setFilter(prev => ({ ...prev, day: day.id }))} whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}
+            <motion.button key={day.id} onClick={() => setFilterState({ day: day.id })} whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}
               style={{
                 background: filter.day === day.id ? day.color : 'rgba(255,255,255,0.02)',
                 color: filter.day === day.id ? day.buttonText : 'rgba(255,255,255,0.55)',
@@ -478,11 +320,12 @@ const Events = () => {
           )}
 
           <div style={{ opacity: isLocked ? 0 : 1, pointerEvents: isLocked ? 'none' : 'auto', visibility: isLocked ? 'hidden' : 'visible', height: isLocked ? '600px' : 'auto', overflow: 'hidden' }}>
-
+            
+            {/* Category Carousel (Restored) */}
             <div className="classification-carousel" style={{ marginBottom: '8rem', overflowX: 'auto', paddingBottom: '1.5rem', scrollbarWidth: 'none' }}>
               <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', minWidth: 'max-content', padding: '0 2rem' }}>
                 {categoriesList.map(c => (
-                  <motion.button key={c} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => setFilter(prev => ({ ...prev, category: c }))}
+                  <motion.button key={c} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => setFilterState({ category: c })}
                     style={{
                       background: filter.category === c ? `${activeTheme.color}` : 'rgba(255,255,255,0.03)',
                       color: filter.category === c ? activeTheme.buttonText : 'rgba(255,255,255,0.72)',
@@ -493,32 +336,40 @@ const Events = () => {
               </div>
             </div>
 
+
             <motion.div layout className="events-grid-system" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2.5rem' }}>
               <AnimatePresence mode="popLayout">
                 {filteredEvents.map((event, index) => (
                   <motion.div layout key={event.id} initial={{ opacity: 0, y: 40, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: false, margin: "-20px" }} transition={{ duration: 0.6, delay: (index % 4) * 0.1 }} className="event-premium-card"
-                    style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '30px', overflow: 'hidden', position: 'relative', height: 'auto', minHeight: '350px', display: 'flex', flexDirection: 'column', border: `1px solid ${activeTheme.color}2f`, backdropFilter: 'blur(20px)' }}>
-                    <div className="card-visual-header" style={{ height: '20px', position: 'relative', overflow: 'hidden', background: `linear-gradient(to right, ${activeTheme.color}44, transparent)` }}>
-                      <div style={{ position: 'absolute', top: '5px', left: '20px' }}>
-                        <div style={{ fontSize: '0.5rem', fontWeight: 950, color: activeTheme.color }}>CH 0{event.day}</div>
+                    style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '30px', overflow: 'hidden', position: 'relative', aspectRatio: '4/5', display: 'flex', flexDirection: 'column', border: `1px solid ${activeTheme.color}2f`, backdropFilter: 'blur(20px)' }}>
+                    
+                    {/* Header Bar showing Category only */}
+                    <div className="card-visual-header" style={{ height: '30px', position: 'relative', overflow: 'hidden', background: `linear-gradient(to right, ${activeTheme.color}77, transparent)`, zIndex: 2 }}>
+                      <div style={{ position: 'absolute', top: '7px', left: '20px' }}>
+                        <div style={{ fontSize: '0.65rem', fontWeight: 950, color: 'white', textTransform: 'uppercase', letterSpacing: '2px', fontFamily: activeTheme.displayFont }}>{event.category}</div>
                       </div>
                     </div>
-                    <div className="card-content-body" style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                      <div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.4rem' }}>
-                          <span style={{ color: activeTheme.color, fontSize: '0.65rem', fontWeight: 950, letterSpacing: '4px', textTransform: 'uppercase', fontFamily: activeTheme.displayFont }}>{event.category}</span>
-                          <div style={{ flex: 1, height: '1px', background: `linear-gradient(to right, ${activeTheme.color}55, transparent)` }} />
+
+                    {/* Background Image / Poster */}
+                    <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+                      {event.image ? (
+                        <img src={event.image} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%', background: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                           <i className="fas fa-image" style={{ fontSize: '3rem', color: activeTheme.color, opacity: 0.1 }}></i>
                         </div>
-                        <h3 style={{ fontSize: '1.6rem', fontWeight: 950, margin: '0.3rem 0 1rem', color: 'white', lineHeight: 1.1, fontFamily: activeTheme.displayFont }}>{event.title}</h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', color: 'rgba(255,255,255,0.78)', fontSize: '0.8rem', fontWeight: 700 }}>
-                          <span><i className="far fa-clock" style={{ color: activeTheme.color }}></i> {event.time}</span>
-                          <span><i className="fas fa-map-marker-alt" style={{ color: activeTheme.color }}></i> {event.location}</span>
-                        </div>
-                      </div>
-                      <motion.button onClick={() => handleOpenModal(event)} whileHover={{ scale: 1.02, backgroundColor: activeTheme.color, color: activeTheme.buttonText }} whileTap={{ scale: 0.98 }}
-                        style={{ background: 'rgba(255,255,255,0.03)', color: 'white', border: `1px solid ${activeTheme.color}66`, padding: '1rem', borderRadius: '15px', fontWeight: 950, fontSize: '0.75rem', marginTop: '1.5rem', cursor: 'pointer', transition: 'all 0.3s ease', letterSpacing: '2px', textTransform: 'uppercase', fontFamily: activeTheme.displayFont }}>
-                        VIEW DETAILS
-                      </motion.button>
+                      )}
+                      {/* Gradient Overlay for bottom button visibility */}
+                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%)' }} />
+                    </div>
+
+                    <div className="card-content-body" style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', zIndex: 1 }}>
+                      <Link to={`/events/${event.slug}`} style={{ textDecoration: 'none' }}>
+                        <motion.button whileHover={{ scale: 1.02, backgroundColor: activeTheme.color, color: activeTheme.buttonText }} whileTap={{ scale: 0.98 }}
+                          style={{ width: '100%', background: 'rgba(255,255,255,0.1)', color: 'white', border: `1px solid ${activeTheme.color}66`, padding: '1.2rem', borderRadius: '20px', fontWeight: 950, fontSize: '0.8rem', cursor: 'pointer', transition: 'all 0.3s ease', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: activeTheme.displayFont, backdropFilter: 'blur(10px)' }}>
+                          VIEW DETAILS
+                        </motion.button>
+                      </Link>
                     </div>
                   </motion.div>
                 ))}
@@ -528,7 +379,6 @@ const Events = () => {
         </div>
       </div>
 
-      <EventModal event={selectedEvent} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} activeTheme={activeTheme} />
 
       <style>{`
                 .container { max-width: 1700px !important; width: 95%; margin: 0 auto; }
