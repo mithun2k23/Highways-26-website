@@ -377,7 +377,7 @@ const Passes = () => {
                         }}
                     >
                         <div style={{ opacity: 1 }}>
-                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>ALUMNI / FAMILY </h3>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>ALUMNI / FAMILY</h3>
                             <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>Alumni Access</div>
                             <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
                                 Exclusive pass for SVCE Alumni & Family<br/>
