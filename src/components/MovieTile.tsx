@@ -1,4 +1,5 @@
 import type { MovieItem } from '@/data/movieItems'
+import { getAssetUrl } from '../config/assets'
 
 type MovieTileProps = {
     item: MovieItem
@@ -27,7 +28,7 @@ export default function MovieTile({ item }: MovieTileProps) {
             ].join(' ')}
         >
             <img
-                src={item.image}
+                src={getAssetUrl(item.image)}
                 alt={`Highways Moment ${item.id}`}
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
             />

@@ -1,10 +1,11 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { getAssetUrl } from '../config/assets';
 
 const Glimpses = lazy(() => import('./Glimpses'));
 
-const HighwaysLogo = "/assets/logos/highways-logo.webp";
+const HighwaysLogo = getAssetUrl("/assets/logos/highways-logo.webp");
 
 const Home = () => {
 
@@ -58,7 +59,7 @@ const Home = () => {
                         zIndex: 0
                     }}
                 >
-                    <source src="/videos/IMG_0151.MOV" type="video/mp4" />
+                    <source src={getAssetUrl("/videos/IMG_0151.MOV")} type="video/mp4" />
                 </video>
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(5,5,5,0.4), rgba(5,5,5,0.8))', zIndex: 0 }}></div>
 

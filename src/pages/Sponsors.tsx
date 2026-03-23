@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { getAssetUrl } from '../config/assets';
 
 const sponsorsData = [
     { name: "Greenstar", tier: "Special Sponsor", logo: "/assets/logos/green star.png", desc: "Official Special Sponsor.", url: "https://applicationsolutions.com.au/environmental-sustainable-design/green-star/" },
@@ -56,7 +57,7 @@ const Sponsors = () => {
                                     }}
                                 >
                                     <img
-                                        src={sponsor.logo}
+                                        src={getAssetUrl(sponsor.logo)}
                                         alt={sponsor.name}
                                         className="sponsor-logo"
                                         style={{

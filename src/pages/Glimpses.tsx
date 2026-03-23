@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { glimpsesImages } from '../data/glimpsesData';
+import { getAssetUrl } from '../config/assets';
 
 const Glimpses = () => {
     // Split images into 3 groups for the 3 rows
@@ -51,7 +52,7 @@ const Glimpses = () => {
                                     cursor: 'pointer',
                                     background: '#080808'
                                 }}>
-                                    <img src={`/assets/glimpses/${img}`} alt="Highways Moment" loading="lazy" style={{ width: 'auto', height: '100%', objectFit: 'contain', display: 'block' }} />
+                                    <img src={getAssetUrl(`/assets/glimpses/${img}`)} alt="Highways Moment" loading="lazy" style={{ width: 'auto', height: '100%', objectFit: 'contain', display: 'block' }} />
                                     <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.1)' }}></div>
                                 </div>
                             ))}
