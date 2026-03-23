@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { applyCursorTheme } from '../lib/cursorTheme';
-import background from '../background.jpg';
+import { getAssetUrl } from '../config/assets';
 
 import { allEvents } from '../data/eventsData';
 
@@ -134,7 +134,7 @@ const Events = () => {
       paddingTop: '180px',
       minHeight: '100vh',
       paddingBottom: '150px',
-      backgroundImage: `url(${background})`,
+      backgroundImage: `url(${getAssetUrl('/background.jpg')})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat',
@@ -346,7 +346,7 @@ const Events = () => {
                     {/* Poster Container */}
                     <div style={{ width: '100%', aspectRatio: '4/5', position: 'relative', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                       {event.image ? (
-                        <img src={event.image} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        <img src={getAssetUrl(event.image)} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       ) : (
                         <div style={{ width: '100%', height: '100%', background: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                            <i className="fas fa-image" style={{ fontSize: '3rem', color: activeTheme.color, opacity: 0.1 }}></i>

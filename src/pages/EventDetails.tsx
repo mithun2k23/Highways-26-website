@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useMemo } from 'react';
 import { allEvents } from '../data/eventsData';
 import { applyCursorTheme } from '../lib/cursorTheme';
-import background from '../background.jpg';
+import { getAssetUrl } from '../config/assets';
 
 const EventDetails = () => {
     const { eventSlug } = useParams<{ eventSlug: string }>();
@@ -41,7 +41,7 @@ const EventDetails = () => {
             paddingTop: '120px',
             minHeight: '100vh',
             paddingBottom: '100px',
-            backgroundImage: `url(${background})`,
+            backgroundImage: `url(${getAssetUrl('/background.jpg')})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',

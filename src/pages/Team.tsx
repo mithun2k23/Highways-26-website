@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { teamData } from '../data/teamData';
+import { getAssetUrl } from '../config/assets';
 
 const Team = () => {
     const [activeTab, setActiveTab] = useState(teamData[0].id);
@@ -104,7 +105,7 @@ const Team = () => {
                                     background: 'rgba(255,255,255,0.02)'
                                 }}>
                                     <img 
-                                        src={member.image} 
+                                        src={getAssetUrl(member.image)} 
                                         alt={member.name} 
                                         style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: member.imagePosition ?? 'center 15%' }}
                                         onError={(e) => {

@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
-const HighwaysLogo = "/assets/logos/highways-logo.webp";
+import { getAssetUrl } from '../config/assets';
+const HighwaysLogo = getAssetUrl("/assets/logos/highways-logo.webp");
 
 const Footer = () => {
   const location = useLocation();
