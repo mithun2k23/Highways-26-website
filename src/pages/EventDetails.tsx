@@ -159,25 +159,8 @@ const EventDetails = () => {
 
                     {/* Right Column: Image and Logistics */}
                     <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-                        {/* Placeholder for Event Image */}
-                        {event.image && (
-                            <div style={{ 
-                                width: '100%', 
-                                aspectRatio: '1', 
-                                background: 'rgba(255,255,255,0.03)', 
-                                borderRadius: '40px', 
-                                border: `1px solid ${activeTheme.color}22`,
-                                overflow: 'hidden',
-                                position: 'relative',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginBottom: '3rem',
-                                boxShadow: `0 20px 50px rgba(0,0,0,0.5), 0 0 30px ${activeTheme.color}11`
-                            }}>
-                                <img src={event.image} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                            </div>
-                        )}
+                        {/* Image removed as per user request */}
+
 
                         <div style={{ background: 'rgba(255,255,255,0.02)', padding: '2rem', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.05)' }}>
                             <h3 style={{ color: activeTheme.color, fontSize: '1rem', fontWeight: 900, letterSpacing: '3px', marginBottom: '1.5rem', fontFamily: activeTheme.displayFont }}>LOGISTICS</h3>

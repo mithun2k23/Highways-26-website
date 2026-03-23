@@ -341,32 +341,48 @@ const Events = () => {
               <AnimatePresence mode="popLayout">
                 {filteredEvents.map((event, index) => (
                   <motion.div layout key={event.id} initial={{ opacity: 0, y: 40, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: false, margin: "-20px" }} transition={{ duration: 0.6, delay: (index % 4) * 0.1 }} className="event-premium-card"
-                    style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '30px', overflow: 'hidden', position: 'relative', aspectRatio: '4/5', display: 'flex', flexDirection: 'column', border: `1px solid ${activeTheme.color}2f`, backdropFilter: 'blur(20px)' }}>
+                    style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '30px', overflow: 'hidden', position: 'relative', display: 'flex', flexDirection: 'column', border: `1px solid ${activeTheme.color}2f`, backdropFilter: 'blur(20px)' }}>
                     
-                    {/* Header Bar showing Category only */}
-                    <div className="card-visual-header" style={{ height: '30px', position: 'relative', overflow: 'hidden', background: `linear-gradient(to right, ${activeTheme.color}77, transparent)`, zIndex: 2 }}>
-                      <div style={{ position: 'absolute', top: '7px', left: '20px' }}>
-                        <div style={{ fontSize: '0.65rem', fontWeight: 950, color: 'white', textTransform: 'uppercase', letterSpacing: '2px', fontFamily: activeTheme.displayFont }}>{event.category}</div>
-                      </div>
-                    </div>
-
-                    {/* Background Image / Poster */}
-                    <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+                    {/* Poster Container */}
+                    <div style={{ width: '100%', aspectRatio: '4/5', position: 'relative', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                       {event.image ? (
-                        <img src={event.image} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={event.image} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       ) : (
                         <div style={{ width: '100%', height: '100%', background: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                            <i className="fas fa-image" style={{ fontSize: '3rem', color: activeTheme.color, opacity: 0.1 }}></i>
                         </div>
                       )}
-                      {/* Gradient Overlay for bottom button visibility */}
-                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%)' }} />
                     </div>
 
-                    <div className="card-content-body" style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', zIndex: 1 }}>
-                      <Link to={`/events/${event.slug}`} style={{ textDecoration: 'none' }}>
-                        <motion.button whileHover={{ scale: 1.02, backgroundColor: activeTheme.color, color: activeTheme.buttonText }} whileTap={{ scale: 0.98 }}
-                          style={{ width: '100%', background: 'rgba(255,255,255,0.1)', color: 'white', border: `1px solid ${activeTheme.color}66`, padding: '1.2rem', borderRadius: '20px', fontWeight: 950, fontSize: '0.8rem', cursor: 'pointer', transition: 'all 0.3s ease', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: activeTheme.displayFont, backdropFilter: 'blur(10px)' }}>
+                    {/* View Details Box (1cm height below poster) */}
+                    <div style={{ 
+                      height: '45px', 
+                      background: 'rgba(255,255,255,0.03)', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      borderTop: `1px solid ${activeTheme.color}11`
+                    }}>
+                      <Link to={`/events/${event.slug}`} style={{ textDecoration: 'none', width: '100%', height: '100%' }}>
+                        <motion.button 
+                          whileHover={{ backgroundColor: `${activeTheme.color}22` }}
+                          style={{ 
+                            width: '100%', 
+                            height: '100%', 
+                            background: 'transparent', 
+                            color: activeTheme.color, 
+                            border: 'none', 
+                            fontWeight: 900, 
+                            fontSize: '0.65rem', 
+                            letterSpacing: '3px', 
+                            textTransform: 'uppercase', 
+                            fontFamily: activeTheme.displayFont,
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'all 0.3s ease'
+                          }}>
                           VIEW DETAILS
                         </motion.button>
                       </Link>

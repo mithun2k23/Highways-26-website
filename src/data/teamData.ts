@@ -169,7 +169,8 @@ export const teamData: TeamGroup[] = [
                 "name": "Nithish D R",
                 "role": "Lead",
                 "spirit": "",
-                "image": "/members/Nithish - lead_operations - NITHISH D R EEE.jpg"
+                "image": "/members/Nithish - lead_operations - NITHISH D R EEE.jpg",
+                "imagePosition": "center 5%"
             },
             {
                 "name": "Ajay M",
@@ -320,7 +321,8 @@ export const teamData: TeamGroup[] = [
                 "name": "Nimal.S",
                 "role": "Sub lead",
                 "spirit": "",
-                "image": "/members/IMG-20260213-WA0028(1) - NIMAL S EEE (1).jpg"
+                "image": "/members/IMG-20260213-WA0028(1) - NIMAL S EEE (1).jpg",
+                "imagePosition": "center 50%"
             },
             {
                 "name": "BHARATH RAJ R",
@@ -356,7 +358,7 @@ export const teamData: TeamGroup[] = [
                 "name": "Vethavarna V",
                 "role": "Member",
                 "spirit": "",
-                "image": "/members/20260301_191701 - VETHAVARNA V ECE.webp"
+                "image": "/members/20260301_191701 - VETHAVARNA V ECE.jpeg"
             }
         ]
     },
@@ -810,6 +812,12 @@ export const teamData: TeamGroup[] = [
                 "role": "Member",
                 "spirit": "",
                 "image": "/members/IMG_4028 - VINEETH I CSE.jpeg"
+            },
+            {
+                "name": "Nitin S",
+                "role": "Member",
+                "spirit": "Vigilance Member",
+                "image": "/members/IMG_2163 - NITIN S EEE.JPG"
             }
         ]
     },
