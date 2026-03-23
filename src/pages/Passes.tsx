@@ -10,6 +10,18 @@ const Passes = () => {
     const [error, setError] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
+    const passLinks: { [key: string]: string } = {
+        svcepass: 'https://forms.gle/nUzSptwM5RNpFYXy6',
+        nonsvcepass: 'https://forms.gle/8d8GqA8sWnBMgZuQ7',
+        svcegrp: 'https://forms.gle/RJjoH3FZN7iLpJpu7',
+        nonsvcegrp: 'https://forms.gle/JE7QUP5VDComKwU89',
+        svcealumni: 'https://forms.gle/1o2A5ckyPYpVMZ7TA'
+    };
+
+    const handlePassClick = (passKey: string) => {
+        window.open(passLinks[passKey], '_blank');
+    };
+
     const [formData, setFormData] = useState({
         name: '',
         register_number: '',
@@ -100,7 +112,7 @@ const Passes = () => {
 
                 <div style={{ 
                     display: 'grid', 
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
                     gap: '2.5rem',
                     width: '100%',
                     maxWidth: '1200px',
@@ -158,12 +170,12 @@ const Passes = () => {
                         </div>
                     </motion.div>
 
-                    {/* NORMAL - COMING SOON/X */}
+                    {/* EVENT PASS - COMING SOON */}
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                        transition={{ delay: 0.05 }}
                         style={{
                             background: 'rgba(255, 255, 255, 0.01)',
                             backdropFilter: 'blur(30px)',
@@ -184,14 +196,16 @@ const Passes = () => {
                            <div style={{ background: '#0a0a0a', padding: '10px 25px', borderRadius: '15px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 950, zIndex: 11, fontSize: '1rem', letterSpacing: '3px' }}>COMING SOON</div>
                         </div>
 
-                        <div style={{ filter: 'blur(8px)', opacity: 0.5 }}>
-                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>NORMAL PASS</h3>
-                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>Standard Access</div>
+                        <div style={{ opacity: 0.15 }}>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>EVENT PASS</h3>
+                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>Event Access</div>
                             <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                                General pass access for the festival experience with standard event entry.
+                                Exclusive event pass<br/>
+                                Access to all Pro Shows<br/>
+                                Access to all free and standard events
                             </p>
                             <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>TBA
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>TBD
                             </div>
                             <button disabled style={{
                                 width: '100%',
@@ -205,11 +219,44 @@ const Passes = () => {
                                 cursor: 'not-allowed',
                                 textTransform: 'uppercase',
                                 fontSize: '0.9rem'
-                            }}>GET PASS NOW</button>
+                            }}>COMING SOON</button>
                         </div>
                     </motion.div>
 
-                    {/* OTHER COLLEGE - LOCKED/X */}
+                    {/* SVCE NORMAL PASS */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.01)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(239, 35, 60, 0.1)',
+                            borderRadius: '40px',
+                            padding: '3rem 2rem',
+                            textAlign: 'center',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.4)',
+                            opacity: 1
+                        }}
+                    >
+                        <div style={{ opacity: 1 }}>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>SVCE PASS</h3>
+                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>SVCE Students Only</div>
+                            <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                                Access to all Pro Shows<br/>
+                                Access to all free and standard events
+                            </p>
+                            <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>1099
+                            </div>
+                            <button onClick={() => handlePassClick('svcepass')} style={{ width: '100%', padding: '1.2rem', background: '#ef233c', border: 'none', color: 'white', borderRadius: '24px', fontWeight: 950, letterSpacing: '2px', cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.9rem' }}>GET PASS NOW</button>
+                        </div>
+                    </motion.div>
+
+                    {/* NON-SVCE PASS */}
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -225,38 +272,122 @@ const Passes = () => {
                             position: 'relative',
                             overflow: 'hidden',
                             boxShadow: '0 50px 100px rgba(0,0,0,0.4)',
-                            opacity: 0.8
+                            opacity: 1
                         }}
                     >
-                         {/* THE X DESIGN */}
-                         <div style={{ position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                           <div style={{ position: 'absolute', width: '130%', height: '2px', background: 'rgba(239, 35, 60, 0.3)', transform: 'rotate(45deg)' }}></div>
-                           <div style={{ position: 'absolute', width: '130%', height: '2px', background: 'rgba(239, 35, 60, 0.3)', transform: 'rotate(-45deg)' }}></div>
-                           <div style={{ background: '#0a0a0a', padding: '10px 25px', borderRadius: '15px', border: '1px solid #ef233c', color: '#ef233c', fontWeight: 950, zIndex: 11, fontSize: '1rem', letterSpacing: '3px' }}>COMING SOON</div>
-                        </div>
-
-                        <div style={{ filter: 'blur(8px)', opacity: 0.5 }}>
+                        <div style={{ opacity: 1 }}>
                             <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>NON-SVCE</h3>
                             <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>External Entry</div>
                             <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                                Pass access for non-SVCE participants with details to be announced shortly.
+                                Access to all Pro Shows<br/>
+                                Access to all free and standard events
                             </p>
                             <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>TBA
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>1199
                             </div>
-                            <button disabled style={{
-                                width: '100%',
-                                padding: '1.2rem',
-                                background: '#ef233c',
-                                border: 'none',
-                                color: 'white',
-                                borderRadius: '24px',
-                                fontWeight: 950,
-                                letterSpacing: '2px',
-                                cursor: 'not-allowed',
-                                textTransform: 'uppercase',
-                                fontSize: '0.9rem'
-                            }}>GET PASS NOW</button>
+                            <button onClick={() => handlePassClick('nonsvcepass')} style={{ width: '100%', padding: '1.2rem', background: '#ef233c', border: 'none', color: 'white', borderRadius: '24px', fontWeight: 950, letterSpacing: '2px', cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.9rem' }}>GET PASS NOW</button>
+                        </div>
+                    </motion.div>
+
+                    {/* SVCE GROUP PASS */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.01)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(239, 35, 60, 0.1)',
+                            borderRadius: '40px',
+                            padding: '3rem 2rem',
+                            textAlign: 'center',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.4)',
+                            opacity: 1
+                        }}
+                    >
+                        <div style={{ opacity: 1 }}>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>SVCE GROUP</h3>
+                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>10 People · SVCE Only</div>
+                            <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                                Group pass for 10 SVCE students<br/>
+                                Access to all Pro Shows<br/>
+                                Access to all free and standard events
+                            </p>
+                            <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>999<span style={{ fontSize: '2.0rem', color: '#fff' }}>/head</span>
+                            </div>
+                            <button onClick={() => handlePassClick('svcegrp')} style={{ width: '100%', padding: '1.2rem', background: '#ef233c', border: 'none', color: 'white', borderRadius: '24px', fontWeight: 950, letterSpacing: '2px', cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.9rem' }}>GET PASS NOW</button>
+                        </div>
+                    </motion.div>
+
+                    {/* NON-SVCE GROUP PASS */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.01)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(239, 35, 60, 0.1)',
+                            borderRadius: '40px',
+                            padding: '3rem 2rem',
+                            textAlign: 'center',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.4)',
+                            opacity: 1
+                        }}
+                    >
+                        <div style={{ opacity: 1 }}>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>NON-SVCE GROUP</h3>
+                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>5 People · External</div>
+                            <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                                Group pass for 5 non-SVCE participants<br/>
+                                Access to all Pro Shows<br/>
+                                Access to all free and standard events
+                            </p>
+                            <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>1099<span style={{ fontSize: '2.0rem', color: '#fff' }}>/head</span>
+                            </div>
+                            <button onClick={() => handlePassClick('nonsvcegrp')} style={{ width: '100%', padding: '1.2rem', background: '#ef233c', border: 'none', color: 'white', borderRadius: '24px', fontWeight: 950, letterSpacing: '2px', cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.9rem' }}>GET PASS NOW</button>
+                        </div>
+                    </motion.div>
+
+                    {/* SVCE ALUMNI PASS */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 }}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.01)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(239, 35, 60, 0.1)',
+                            borderRadius: '40px',
+                            padding: '3rem 2rem',
+                            textAlign: 'center',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            boxShadow: '0 50px 100px rgba(0,0,0,0.4)',
+                            opacity: 1
+                        }}
+                    >
+                        <div style={{ opacity: 1 }}>
+                            <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>ALUMNI / FAMILY </h3>
+                            <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>Alumni Access</div>
+                            <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                                Exclusive pass for SVCE Alumni<br/>
+                                Access to all Pro Shows<br/>
+                                Access to all free and standard events
+                            </p>
+                            <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>500/899
+                            </div>
+                            <button onClick={() => handlePassClick('svcealumni')} style={{ width: '100%', padding: '1.2rem', background: '#ef233c', border: 'none', color: 'white', borderRadius: '24px', fontWeight: 950, letterSpacing: '2px', cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.9rem' }}>GET PASS NOW</button>
                         </div>
                     </motion.div>
                 </div>
