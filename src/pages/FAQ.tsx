@@ -9,7 +9,7 @@ const FAQ = () => {
         { q: "What is Highways '26?", a: "Highways '26 is the premier intercollegiate cultural festival of Sri Venkateswara College of Engineering (SVCE), celebrating creativity, talent, and diversity across a 3-day saga." },
         { q: "Who is eligible to participate?", a: "Students currently enrolled in any recognized undergraduate or postgraduate program across the country are welcome to participate." },
         { q: "How do I secure my festival pass?", a: "You can purchase your passes directly through our 'Passes' page. We offer day-specific passes and a full-access combo pass." },
-        { q: "Are the passes refundable?", a: "All pass sales are final. However, you can transfer your pass to another student with prior approval from the organizers." },
+        { q: "Are the passes refundable?", a: "All pass sales are final. Refund or switching of tickets is strictly prohibited." },
         { q: "What should I bring for registration?", a: "Please carry your college ID card and the digital QR code of your festival pass for verification at the entrance." },
         { q: "Will there be professional performances?", a: "Absolutely! Each night concludes with a high-energy pro-show featuring top-tier artists. Check the Celebrity Reveal section for updates." },
         { q: "Is on-spot registration available?", a: "We strongly recommend online booking as passes are limited and usually sell out before the event. On-spot registration depends on availability." },
