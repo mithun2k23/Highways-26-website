@@ -380,9 +380,10 @@ const Passes = () => {
                             <h3 style={{ fontSize: '2.5rem', fontWeight: 950, marginBottom: '0.8rem', color: '#fff', letterSpacing: '-1px', fontFamily: '"Orbitron", sans-serif' }}>ALUMNI / FAMILY </h3>
                             <div style={{ background: 'rgba(239, 35, 60, 0.1)', color: '#ef233c', padding: '5px 15px', borderRadius: '50px', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1.2rem', textTransform: 'uppercase', display: 'inline-block' }}>Alumni Access</div>
                             <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                                Exclusive pass for SVCE Alumni<br/>
+                                Exclusive pass for SVCE Alumni & Family<br/>
                                 Access to all Pro Shows<br/>
-                                Access to all free and standard events
+                                Access to all free and standard events<br/>
+                                *1 day pass / 3 day pass
                             </p>
                             <div style={{ fontSize: '4rem', fontWeight: 950, marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                                 <span style={{ fontSize: '1.8rem', color: '#ef233c' }}>₹</span>500/899
